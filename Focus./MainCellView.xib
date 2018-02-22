@@ -24,17 +24,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="343" height="91.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26f-e6-4zn">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="50" id="tVD-vU-pJs"/>
-                        </constraints>
-                        <string key="text">Supports two lines
-Like this</string>
-                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
-                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yoj-gC-8iS">
                         <rect key="frame" x="0.0" y="50" width="343" height="22"/>
                         <constraints>
@@ -44,26 +33,44 @@ Like this</string>
                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Kcc-9M-3og">
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="Pm8-QS-crh"/>
+                        </constraints>
+                        <string key="text">Supports two lines
+Like this</string>
+                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
+                    </textView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5n5-Vz-Kp8">
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="92"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstItem="26f-e6-4zn" firstAttribute="leading" secondItem="jXf-GT-L7G" secondAttribute="leading" id="3Df-sb-wQu"/>
-                    <constraint firstItem="26f-e6-4zn" firstAttribute="top" secondItem="jXf-GT-L7G" secondAttribute="top" id="FAR-xu-KZV"/>
-                    <constraint firstItem="Yoj-gC-8iS" firstAttribute="top" secondItem="26f-e6-4zn" secondAttribute="bottom" id="GFF-0j-PAB"/>
+                    <constraint firstItem="5n5-Vz-Kp8" firstAttribute="top" secondItem="jXf-GT-L7G" secondAttribute="top" id="IpG-J2-eW3"/>
                     <constraint firstItem="Yoj-gC-8iS" firstAttribute="leading" secondItem="jXf-GT-L7G" secondAttribute="leading" id="JCk-oY-86a"/>
-                    <constraint firstItem="Yoj-gC-8iS" firstAttribute="top" secondItem="26f-e6-4zn" secondAttribute="bottom" id="KvI-YF-6JF"/>
+                    <constraint firstAttribute="trailing" secondItem="Kcc-9M-3og" secondAttribute="trailing" id="KNt-KB-2Uc"/>
                     <constraint firstAttribute="trailing" secondItem="Yoj-gC-8iS" secondAttribute="trailing" id="fSe-U6-fcV"/>
-                    <constraint firstItem="Yoj-gC-8iS" firstAttribute="top" secondItem="26f-e6-4zn" secondAttribute="bottom" id="lDw-HN-Lnw"/>
+                    <constraint firstAttribute="trailing" secondItem="5n5-Vz-Kp8" secondAttribute="trailing" id="frc-wN-y5d"/>
+                    <constraint firstItem="Yoj-gC-8iS" firstAttribute="top" secondItem="Kcc-9M-3og" secondAttribute="bottom" id="fux-vl-qiu"/>
+                    <constraint firstItem="Kcc-9M-3og" firstAttribute="top" secondItem="jXf-GT-L7G" secondAttribute="top" id="gAt-Wb-DyY"/>
+                    <constraint firstAttribute="bottom" secondItem="5n5-Vz-Kp8" secondAttribute="bottom" id="mN7-Re-XP8"/>
+                    <constraint firstItem="Kcc-9M-3og" firstAttribute="leading" secondItem="jXf-GT-L7G" secondAttribute="leading" id="o2D-jj-qUo"/>
                     <constraint firstAttribute="bottom" secondItem="Yoj-gC-8iS" secondAttribute="bottom" constant="20" id="q5e-Mf-m6u"/>
-                    <constraint firstItem="Yoj-gC-8iS" firstAttribute="top" secondItem="26f-e6-4zn" secondAttribute="bottom" id="wlF-VT-960"/>
-                    <constraint firstAttribute="trailing" secondItem="26f-e6-4zn" secondAttribute="trailing" id="y7Y-y7-Lvz"/>
+                    <constraint firstItem="5n5-Vz-Kp8" firstAttribute="leading" secondItem="jXf-GT-L7G" secondAttribute="leading" id="svZ-Ft-Z8A"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="interactionView" destination="5n5-Vz-Kp8" id="iF6-bU-X6f"/>
                 <outlet property="statusLabel" destination="Yoj-gC-8iS" id="fOa-WC-KVV"/>
-                <outlet property="titleLabel" destination="26f-e6-4zn" id="ttg-UL-XDq"/>
+                <outlet property="titleView" destination="Kcc-9M-3og" id="ziv-60-xH2"/>
             </connections>
-            <point key="canvasLocation" x="463.5" y="49.5"/>
+            <point key="canvasLocation" x="463.5" y="49"/>
         </tableViewCell>
     </objects>
 </document>
