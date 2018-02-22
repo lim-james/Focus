@@ -151,7 +151,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else if tableView == topTableView {
             if indexPath.row >= emptyRows {
                 cell.task = tasks[indexPath.row - emptyRows]
-                cell.titleLabel.textColor = .orange
                 cell.isHidden = false
             } else {
                 cell.isHidden = true
@@ -159,7 +158,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else if tableView == bottomTableView {
             if indexPath.row < tasks.count {
                 cell.task = tasks[indexPath.row]
-                cell.titleLabel.textColor = .green
                 cell.isHidden = false
             } else {
                 cell.isHidden = true
