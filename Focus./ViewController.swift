@@ -59,7 +59,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setupMainButton()
         hideButtons()
         
-        emptyRows = Int(view.frame.height/rowHeight)
+        emptyRows = Int((view.frame.height/rowHeight)/2)
         topMultiplier = topMultiplier.setMultiplier(CGFloat(emptyRows + 1))
         bottomMultiplier = bottomMultiplier.setMultiplier(CGFloat(emptyRows + 1))
         reloadTablesViews()
@@ -151,6 +151,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else if tableView == topTableView {
             if indexPath.row >= emptyRows {
                 cell.task = tasks[indexPath.row - emptyRows]
+                cell.titleLabel.textColor = .orange
                 cell.isHidden = false
             } else {
                 cell.isHidden = true
@@ -158,6 +159,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else if tableView == bottomTableView {
             if indexPath.row < tasks.count {
                 cell.task = tasks[indexPath.row]
+                cell.titleLabel.textColor = .green
                 cell.isHidden = false
             } else {
                 cell.isHidden = true

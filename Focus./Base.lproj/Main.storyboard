@@ -25,25 +25,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="92" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7i2-Cg-pCE">
-                                <rect key="frame" x="16" y="15" width="343" height="364"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="CGa-pK-YlG" customClass="MainCell" customModule="Focus_" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="92"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CGa-pK-YlG" id="HjO-n8-ix4">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="92"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="92" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D0v-1f-w1v">
-                                <rect key="frame" x="16" y="288" width="343" height="364"/>
+                                <rect key="frame" x="16" y="287.5" width="343" height="368"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -60,10 +43,10 @@
                                 </prototypes>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="92" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lge-cm-Fmi">
-                                <rect key="frame" x="16" y="288" width="343" height="91"/>
+                                <rect key="frame" x="16" y="287.5" width="343" height="92"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="91" id="bSl-4C-dNt"/>
+                                    <constraint firstAttribute="height" constant="92" id="bSl-4C-dNt"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="AMj-Od-3l6" customClass="MainCell" customModule="Focus_" customModuleProvider="target">
@@ -130,22 +113,40 @@
                                 </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkK-vf-RYg">
-                                <rect key="frame" x="16" y="379.5" width="343" height="0.0"/>
+                                <rect key="frame" x="16" y="380" width="343" height="0.0"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="QDE-ch-r5G"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxM-0X-UWb">
-                                <rect key="frame" x="16" y="288.5" width="343" height="0.0"/>
+                                <rect key="frame" x="16" y="287.5" width="343" height="0.0"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="Xe9-4H-p1p"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="92" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7i2-Cg-pCE">
+                                <rect key="frame" x="16" y="12" width="343" height="368"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="CGa-pK-YlG" customClass="MainCell" customModule="Focus_" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="92"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CGa-pK-YlG" id="HjO-n8-ix4">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="92"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="7i2-Cg-pCE" firstAttribute="height" secondItem="Lge-cm-Fmi" secondAttribute="height" multiplier="4" id="182-HF-O91"/>
                             <constraint firstItem="Lge-cm-Fmi" firstAttribute="leading" secondItem="eBu-fJ-Yum" secondAttribute="leading" constant="16" id="2lb-2g-MOm"/>
                             <constraint firstItem="7i2-Cg-pCE" firstAttribute="leading" secondItem="eBu-fJ-Yum" secondAttribute="leading" constant="16" id="4RP-fs-7dz"/>
                             <constraint firstItem="eBu-fJ-Yum" firstAttribute="trailing" secondItem="g4I-7A-AAC" secondAttribute="trailing" constant="16" id="5e5-xC-Ecl"/>
@@ -177,7 +178,6 @@
                             <constraint firstItem="bdI-Ox-4VF" firstAttribute="width" secondItem="g4I-7A-AAC" secondAttribute="width" id="pnc-ay-N3t"/>
                             <constraint firstItem="mkK-vf-RYg" firstAttribute="leading" secondItem="eBu-fJ-Yum" secondAttribute="leading" constant="16" id="tkt-Bh-as6"/>
                             <constraint firstItem="Xc1-cq-dfl" firstAttribute="bottom" secondItem="eBu-fJ-Yum" secondAttribute="bottom" id="ud3-0z-eE2"/>
-                            <constraint firstItem="7i2-Cg-pCE" firstAttribute="height" secondItem="Lge-cm-Fmi" secondAttribute="height" multiplier="4" id="vvq-7D-bF0"/>
                             <constraint firstItem="eBu-fJ-Yum" firstAttribute="trailing" secondItem="D0v-1f-w1v" secondAttribute="trailing" constant="16" id="zXB-ze-RXK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eBu-fJ-Yum"/>
@@ -190,28 +190,13 @@
                         <outlet property="centreTableView" destination="Lge-cm-Fmi" id="zQC-Y8-hWB"/>
                         <outlet property="deleteEditButton" destination="bdI-Ox-4VF" id="k6Q-Ej-KCp"/>
                         <outlet property="mainButton" destination="3e2-19-EQy" id="r0y-XQ-pmp"/>
-                        <outlet property="topMultiplier" destination="vvq-7D-bF0" id="xpp-e7-c1W"/>
+                        <outlet property="topMultiplier" destination="182-HF-O91" id="oB7-cu-eG1"/>
                         <outlet property="topTableView" destination="7i2-Cg-pCE" id="ebp-hy-iEC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WOt-j3-Ud4" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="904.79999999999995" y="133.5832083958021"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Hhx-Ca-jDg">
-            <objects>
-                <viewController id="jfu-ol-2NL" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="uwl-tr-BrN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="XZB-mm-gyF"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L4L-m4-jfX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1654" y="134"/>
         </scene>
     </scenes>
 </document>
