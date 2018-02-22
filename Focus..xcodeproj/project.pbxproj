@@ -15,6 +15,7 @@
 		7491CACC203E7F5F00E61C5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7491CACB203E7F5F00E61C5A /* ViewController.swift */; };
 		7491CACE203E80CD00E61C5A /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7491CACD203E80CD00E61C5A /* MainCell.swift */; };
 		74FD11F6203EC17C006800A1 /* MainCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74FD11F5203EC17C006800A1 /* MainCellView.xib */; };
+		74FD11F8203ECCEE006800A1 /* LayoutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FD11F7203ECCEE006800A1 /* LayoutExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		7491CACB203E7F5F00E61C5A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7491CACD203E80CD00E61C5A /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		74FD11F5203EC17C006800A1 /* MainCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCellView.xib; sourceTree = "<group>"; };
+		74FD11F7203ECCEE006800A1 /* LayoutExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				7491CAB3203E5A4800E61C5A /* AppDelegate.swift */,
+				74FD11F7203ECCEE006800A1 /* LayoutExtension.swift */,
 				7491CAC9203E6B1500E61C5A /* Task.swift */,
 				7491CACD203E80CD00E61C5A /* MainCell.swift */,
 				7491CACB203E7F5F00E61C5A /* ViewController.swift */,
@@ -149,6 +152,7 @@
 				7491CACA203E6B1500E61C5A /* Task.swift in Sources */,
 				7491CACE203E80CD00E61C5A /* MainCell.swift in Sources */,
 				7491CAB4203E5A4800E61C5A /* AppDelegate.swift in Sources */,
+				74FD11F8203ECCEE006800A1 /* LayoutExtension.swift in Sources */,
 				7491CACC203E7F5F00E61C5A /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

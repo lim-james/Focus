@@ -14,7 +14,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var current = 0
     var changed = false
     
+    var emptyRows: Int = 0
     var rowHeight: CGFloat = 92
+    
+    @IBOutlet weak var topMultiplier: NSLayoutConstraint!
+    @IBOutlet weak var bottomMultiplier: NSLayoutConstraint!
     
     @IBOutlet weak var topTableView: UITableView!
     @IBOutlet weak var centreTableView: UITableView!
@@ -54,6 +58,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidAppear(animated)
         setupMainButton()
         hideButtons()
+        
+        emptyRows = Int(view.frame.height/rowHeight)
+        topMultiplier = topMultiplier.setMultiplier(CGFloat(emptyRows + 1))
+        bottomMultiplier = bottomMultiplier.setMultiplier(CGFloat(emptyRows + 1))
+        reloadTablesViews()
     }
     
     override func didReceiveMemoryWarning() {
@@ -128,7 +137,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView != centreTableView {
-            return tasks.count + 3
+            return tasks.count + emptyRows
         }
         return tasks.count
     }
@@ -140,8 +149,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.backgroundColor = .black
             cell.isHidden = false
         } else if tableView == topTableView {
-            if indexPath.row > 2 {
-                cell.task = tasks[indexPath.row - 3]
+            if indexPath.row >= emptyRows {
+                cell.task = tasks[indexPath.row - emptyRows]
                 cell.isHidden = false
             } else {
                 cell.isHidden = true
@@ -159,7 +168,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == topTableView {
-            centreTableView.scrollToRow(at: IndexPath(row: indexPath.row - 3, section: indexPath.section), at: .top, animated: true)
+            centreTableView.scrollToRow(at: IndexPath(row: indexPath.row - emptyRows, section: indexPath.section), at: .top, animated: true)
         } else if tableView == bottomTableView {
             centreTableView.scrollToRow(at: indexPath, at: .top, animated: true)
         }
@@ -174,6 +183,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.estimatedRowHeight = rowHeight
         tableView.rowHeight = rowHeight
         tableView.register(UINib(nibName: "MainCellView", bundle: nil), forCellReuseIdentifier: "Cell")
+    }
+    
+    func reloadTablesViews() {
+        topTableView.reloadData()
+        centreTableView.reloadData()
+        bottomTableView.reloadData()
     }
     
     func setupMainButton() {

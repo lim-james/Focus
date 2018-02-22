@@ -183,12 +183,14 @@
                         <viewLayoutGuide key="safeArea" id="eBu-fJ-Yum"/>
                     </view>
                     <connections>
+                        <outlet property="bottomMultiplier" destination="KJe-ei-Vg9" id="cxn-oy-4CA"/>
                         <outlet property="bottomTableView" destination="D0v-1f-w1v" id="vM2-WP-zRo"/>
                         <outlet property="cancelButton" destination="FmR-qb-RBm" id="zPk-9U-Px4"/>
                         <outlet property="cancelEditButton" destination="g4I-7A-AAC" id="cmU-Vc-yd2"/>
                         <outlet property="centreTableView" destination="Lge-cm-Fmi" id="zQC-Y8-hWB"/>
                         <outlet property="deleteEditButton" destination="bdI-Ox-4VF" id="k6Q-Ej-KCp"/>
                         <outlet property="mainButton" destination="3e2-19-EQy" id="r0y-XQ-pmp"/>
+                        <outlet property="topMultiplier" destination="vvq-7D-bF0" id="xpp-e7-c1W"/>
                         <outlet property="topTableView" destination="7i2-Cg-pCE" id="ebp-hy-iEC"/>
                     </connections>
                 </viewController>
