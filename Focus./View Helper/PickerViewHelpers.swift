@@ -40,4 +40,8 @@ extension ViewController {
         
         return label
     }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        updateTime()
+    }
 }
