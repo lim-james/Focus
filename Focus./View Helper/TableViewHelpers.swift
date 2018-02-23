@@ -50,6 +50,8 @@ extension ViewController {
         } else if tableView == topTableView {
             if indexPath.row >= emptyRows && indexPath.row <= emptyRows + tasks.count - 1 {
                 cell.task = tasks[indexPath.row - emptyRows]
+            } else if indexPath.row == tasks.count + emptyRows {
+                cell.task = Task(id: indexPath.row, title: "", hours: 1, minutes: 30, status: .UNDONE)
             } else {
                 cell.isHidden = true
             }
