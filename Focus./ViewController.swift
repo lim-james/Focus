@@ -8,9 +8,12 @@
 
 import UIKit
 
+protocol UpdateDelegate {
+    func reloadTableViews()
+}
+
 protocol TaskDelegate {
     func addTask(_ task: Task)
-    func updateTask(_ task: Task)
 }
 
 protocol TimeDelegate {
@@ -35,12 +38,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var centreTableView: UITableView!
     @IBOutlet weak var bottomTableView: UITableView!
     
-    var current: Int = 0
+    var current: Task!
     @IBOutlet weak var pickerContainer: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
     
     var buttonGradient = [UIColor(red: 0, green: 253/255, blue: 254/255, alpha: 1), UIColor(red: 0, green: 250/255, blue: 146/255, alpha: 1)]
     
+    var previousMessage = "New"
     @IBOutlet weak var mainButton: UIButton! // new task, confirm edit or creation
     
     @IBOutlet weak var cancelButton: UIButton! // to cancel new tasks
@@ -76,7 +80,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         emptyRows = Int((view.frame.height/rowHeight)/2)
         topMultiplier = topMultiplier.setMultiplier(CGFloat(emptyRows + 1))
         bottomMultiplier = bottomMultiplier.setMultiplier(CGFloat(emptyRows + 1))
-        reloadTablesViews()
+        reloadTableViews()
         
         topInset = 20
     }
@@ -93,8 +97,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             centreTableView.scrollToRow(at: indexPath, at: .top, animated: true)
         } else if mainButton.titleLabel?.text == "Done" {
             closeTimePicker()
-        } else {
+        } else if mainButton.titleLabel?.text == "Confirm" {
             mainButton.setTitle("New", for: .normal)
+            view.endEditing(true)
         }
     }
 }

@@ -9,11 +9,16 @@
 import UIKit
 
 extension ViewController: TimeDelegate {
+    
     func openTimePicker(with task: Task) {
         pickerView.selectRow(task.hours, inComponent: 0, animated: true)
         pickerView.selectRow(task.minutes, inComponent: 2, animated: true)
+        
+        if previousMessage != mainButton.titleLabel?.text {
+            previousMessage =   (mainButton.titleLabel?.text)!
+        }
         mainButton.setTitle("Done", for: .normal)
-        current = task.id
+        current = task
         
         topTableView.isScrollEnabled = false
         centreTableView.isScrollEnabled = false
@@ -29,14 +34,13 @@ extension ViewController: TimeDelegate {
     
     // seems hacky gotta fix it soon.
     func updateTime() {
-        var task = tasks[current]
-        task.hours = pickerView.selectedRow(inComponent: 0)
-        task.minutes = pickerView.selectedRow(inComponent: 2)
-        updateTask(task)
+        current.hours = pickerView.selectedRow(inComponent: 0)
+        current.minutes = pickerView.selectedRow(inComponent: 2)
+        reloadTableViews()
     }
     
     func closeTimePicker() {
-        mainButton.setTitle("New", for: .normal)
+        mainButton.setTitle(previousMessage, for: .normal)
         bottomMultiplier = bottomMultiplier.setMultiplier(CGFloat(emptyRows + 1))
         UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()

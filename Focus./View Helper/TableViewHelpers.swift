@@ -20,12 +20,6 @@ extension ViewController {
         tableView.register(UINib(nibName: "MainCellView", bundle: nil), forCellReuseIdentifier: "Cell")
     }
     
-    func reloadTablesViews() {
-        topTableView.reloadData()
-        centreTableView.reloadData()
-        bottomTableView.reloadData()
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return rowHeight
     }
@@ -42,6 +36,7 @@ extension ViewController {
         cell.isHidden = false
         cell.taskDelegate = self
         cell.timeDelegate = self
+        cell.updateDelegate = self
         if tableView == centreTableView {
             cell.interactionView.isHidden = true
             cell.backgroundColor = .black

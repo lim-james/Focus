@@ -9,13 +9,12 @@
 import UIKit
 
 extension ViewController: TaskDelegate {
-    func addTask(_ task: Task) {
-        tasks.append(task)
-        reloadTablesViews()
+    func setCurrentTask(_ task: Task) {
+        current = task
     }
     
-    func updateTask(_ task: Task) {
-        tasks[task.id] = task
-        reloadTablesViews()
+    func addTask(_ task: Task) {
+        tasks.append(task)
+        reloadTableViews()
     }
 }

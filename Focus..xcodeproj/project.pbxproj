@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6EDEEDE320405C0000EDBAB1 /* UpdateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDEEDE220405C0000EDBAB1 /* UpdateHelpers.swift */; };
 		7491CAB4203E5A4800E61C5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7491CAB3203E5A4800E61C5A /* AppDelegate.swift */; };
 		7491CAB9203E5A4800E61C5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7491CAB7203E5A4800E61C5A /* Main.storyboard */; };
 		7491CABB203E5A4800E61C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7491CABA203E5A4800E61C5A /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6EDEEDE220405C0000EDBAB1 /* UpdateHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateHelpers.swift; sourceTree = "<group>"; };
 		7491CAB0203E5A4700E61C5A /* Focus..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Focus..app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7491CAB3203E5A4800E61C5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7491CAB8203E5A4800E61C5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				74A29BFC203FA7CE00834062 /* TaskHelpers.swift */,
 				74A29C07203FBB5000834062 /* TimeHelpers.swift */,
 				74A29C05203FB77A00834062 /* PickerViewHelpers.swift */,
+				6EDEEDE220405C0000EDBAB1 /* UpdateHelpers.swift */,
 			);
 			path = "View Helper";
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				74A29C06203FB77A00834062 /* PickerViewHelpers.swift in Sources */,
 				74A29BF9203FA74200834062 /* TableViewHelpers.swift in Sources */,
 				7491CACA203E6B1500E61C5A /* Task.swift in Sources */,
+				6EDEEDE320405C0000EDBAB1 /* UpdateHelpers.swift in Sources */,
 				7491CACE203E80CD00E61C5A /* MainCell.swift in Sources */,
 				74A29C03203FAFBA00834062 /* TextViewExtension.swift in Sources */,
 				7491CAB4203E5A4800E61C5A /* AppDelegate.swift in Sources */,

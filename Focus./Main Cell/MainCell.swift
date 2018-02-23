@@ -16,6 +16,7 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     
     var taskDelegate: TaskDelegate!
     var timeDelegate: TimeDelegate!
+    var updateDelegate: UpdateDelegate!
     
     var task: Task! {
         didSet {
@@ -47,9 +48,9 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     
     func checkTask(_ content: String) {
         let prev = task.title
-        task = Task(id: task.id, title: content, hours: task.hours, minutes: task.minutes, status: task.status)
+        task.title = content
         if prev.isEmpty { taskDelegate.addTask(task) }
-        else { taskDelegate.updateTask(task) }
+        else { updateDelegate.reloadTableViews() }
     }
     
     func textViewDidChange(_ textView: UITextView) {

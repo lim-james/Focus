@@ -15,15 +15,21 @@ enum Status {
     case SKIPPED
 }
 
-struct Task {
+class Task {
     var id: Int
     var title: String
     var hours: Int
     var minutes: Int
     var status: Status
-}
-
-extension Task {
+    
+    init(id: Int, title: String, hours: Int, minutes: Int, status: Status) {
+        self.id = id
+        self.title = title
+        self.hours = hours
+        self.minutes = minutes
+        self.status = status
+    }
+    
     var getFormattedDuration: String {
         let h = hours == 0 ? "" : "\(hours)h "
         let m = minutes == 0 ? "" : "\(minutes)m"
