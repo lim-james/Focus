@@ -13,6 +13,11 @@ extension ViewController: TimeDelegate {
         pickerView.selectRow(task.hours, inComponent: 0, animated: true)
         pickerView.selectRow(task.minutes, inComponent: 2, animated: true)
         mainButton.setTitle("Done", for: .normal)
+        current = task.id
+        
+        topTableView.isScrollEnabled = false
+        centreTableView.isScrollEnabled = false
+        bottomTableView.isScrollEnabled = false
         
         bottomMultiplier = bottomMultiplier.setMultiplier(1)
         UIView.animate(withDuration: 0.5) {
@@ -22,13 +27,22 @@ extension ViewController: TimeDelegate {
         }
     }
     
+    // seems hacky gotta fix it soon.
     func updateTime() {
+        var task = tasks[current]
+        task.hours = pickerView.selectedRow(inComponent: 0)
+        task.minutes = pickerView.selectedRow(inComponent: 2)
+        updateTask(task)
+    }
+    
+    func closeTimePicker() {
         mainButton.setTitle("New", for: .normal)
-        bottomMultiplier = bottomMultiplier.setMultiplier(1)
+        bottomMultiplier = bottomMultiplier.setMultiplier(CGFloat(emptyRows + 1))
         UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
             self.bottomTableView.alpha = 1
             self.pickerContainer.alpha = 0
         }
     }
+
 }

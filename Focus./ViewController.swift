@@ -16,13 +16,12 @@ protocol TaskDelegate {
 protocol TimeDelegate {
     func openTimePicker(with task: Task)
     func updateTime()
+    func closeTimePicker()
 }
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var tasks: [Task] = []
-    var current = 0
-    var changed = false
     
     var emptyRows: Int = 0
     var rowHeight: CGFloat = 92
@@ -36,6 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var centreTableView: UITableView!
     @IBOutlet weak var bottomTableView: UITableView!
     
+    var current: Int = 0
     @IBOutlet weak var pickerContainer: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
     
@@ -92,7 +92,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let indexPath = IndexPath(item: tasks.count, section: 0)
             centreTableView.scrollToRow(at: indexPath, at: .top, animated: true)
         } else if mainButton.titleLabel?.text == "Done" {
-            updateTime()
+            closeTimePicker()
         } else {
             mainButton.setTitle("New", for: .normal)
         }
