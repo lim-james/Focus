@@ -20,6 +20,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var topMultiplier: NSLayoutConstraint!
     @IBOutlet weak var bottomMultiplier: NSLayoutConstraint!
     
+    var topInset: CGFloat = 0
+    
     @IBOutlet weak var topTableView: UITableView!
     @IBOutlet weak var centreTableView: UITableView!
     @IBOutlet weak var bottomTableView: UITableView!
@@ -63,6 +65,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         topMultiplier = topMultiplier.setMultiplier(CGFloat(emptyRows + 1))
         bottomMultiplier = bottomMultiplier.setMultiplier(CGFloat(emptyRows + 1))
         reloadTablesViews()
+        
+        topInset = 20
     }
     
     override func didReceiveMemoryWarning() {
@@ -111,7 +115,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             centreTableView.contentOffset.y = topTableView.contentOffset.y
             bottomTableView.contentOffset.y = topTableView.contentOffset.y
         case centreTableView:
-            topTableView.contentOffset.y = centreTableView.contentOffset.y
+            topTableView.contentOffset.y = centreTableView.contentOffset.y // == nil ? centreTableView.contentOffset.y : centreTableView.contentOffset.y + 20
             bottomTableView.contentOffset.y = centreTableView.contentOffset.y
         case bottomTableView:
             topTableView.contentOffset.y = bottomTableView.contentOffset.y
