@@ -16,6 +16,7 @@ enum Status {
 }
 
 struct Task {
+    var id: Int
     var title: String
     var duration: String
     var status: Status

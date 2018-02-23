@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol TaskDelegate {
+    func addTask(_ task: Task)
+    func updateTask(_ task: Task)
+}
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var tasks: [Task] = []
@@ -40,14 +45,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tasks.append(Task(title: "Example of completed event", duration: "1h", status: .DONE))
-        tasks.append(Task(title: "This was skipped because the person was not determined enough", duration: "3h 30m", status: .SKIPPED))
-        tasks.append(Task(title: "Timed event", duration: "1h 30m", status: .DOING))
-        tasks.append(Task(title: "Events that loops unless stopped", duration: "30m", status: .UNDONE))
-        tasks.append(Task(title: "This could be an event that was skipped by the user", duration: "1h 30m", status: .UNDONE))
-        tasks.append(Task(title: "More events just to test out the scroll", duration: "5m", status: .UNDONE))
-        tasks.append(Task(title: "If you're wondering this was made of 3 table views", duration: "1h 30m", status: .UNDONE))
-        tasks.append(Task(title: "Apple made it the same I just adapted", duration: "30m", status: .UNDONE))
+        tasks.append(Task(id: 0, title: "Example of completed event", duration: "1h", status: .DONE))
+        tasks.append(Task(id: 1, title: "This was skipped because the person was not determined enough", duration: "3h 30m", status: .SKIPPED))
+        tasks.append(Task(id: 2, title: "Timed event", duration: "1h 30m", status: .DOING))
+        tasks.append(Task(id: 3, title: "Events that loops unless stopped", duration: "30m", status: .UNDONE))
+        tasks.append(Task(id: 4, title: "This could be an event that was skipped by the user", duration: "1h 30m", status: .UNDONE))
+        tasks.append(Task(id: 5, title: "More events just to test out the scroll", duration: "5m", status: .UNDONE))
+        tasks.append(Task(id: 6, title: "If you're wondering this was made of 3 table views", duration: "1h 30m", status: .UNDONE))
+        tasks.append(Task(id: 7, title: "Apple made it the same I just adapted", duration: "30m", status: .UNDONE))
         
         setupTableView(topTableView)
         setupTableView(centreTableView)
@@ -75,157 +80,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        syncScrolls(scrollView)
-    }
-    
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let y = targetContentOffset.pointee.y + scrollView.contentInset.top + rowHeight/2
-        let cellIndex  = floor(y/rowHeight)
-        targetContentOffset.pointee.y = cellIndex * rowHeight - scrollView.contentInset.top
-        syncScrolls(scrollView)
-    }
-    
-    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
-        syncScrolls(scrollView)
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        syncScrolls(scrollView)
-    }
-    
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        syncScrolls(scrollView)
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        syncScrolls(scrollView)
-    }
-    
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        syncScrolls(scrollView)
-    }
-    
-    func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
-        syncScrolls(scrollView)
-    }
-    
-    func syncScrolls(_ scrollView: UIScrollView) {
-         view.endEditing(true)
-        switch scrollView {
-        case topTableView:
-            centreTableView.contentOffset.y = topTableView.contentOffset.y
-            bottomTableView.contentOffset.y = topTableView.contentOffset.y
-        case centreTableView:
-            topTableView.contentOffset.y = centreTableView.contentOffset.y // == nil ? centreTableView.contentOffset.y : centreTableView.contentOffset.y + 20
-            bottomTableView.contentOffset.y = centreTableView.contentOffset.y
-        case bottomTableView:
-            topTableView.contentOffset.y = bottomTableView.contentOffset.y
-            centreTableView.contentOffset.y = bottomTableView.contentOffset.y
-        default:
-            return
-        }
-    }
-    
     @IBAction func mainAction(_ sender: Any) {
-        let button = sender as! UIButton
-        if button.titleLabel?.text == "New" {
-            button.setTitle("Confirm", for: .normal)
-        } else {
-            
-        }
-        let indexPath = IndexPath(item: tasks.count, section: 0)
-        centreTableView.scrollToRow(at: indexPath, at: .top, animated: true)
-        let cell = centreTableView.cellForRow(at: indexPath) as! MainCell
-        cell.titleView.becomeFirstResponder()
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return rowHeight
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView != centreTableView {
-            return tasks.count + emptyRows + 1
-        }
-        return tasks.count + 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainCell
-        cell.isHidden = false
-        if tableView == centreTableView {
-            cell.interactionView.isHidden = true
-            cell.backgroundColor = .black
-            if indexPath.row < tasks.count {
-                cell.task = tasks[indexPath.row]
-            } else if indexPath.row == tasks.count {
-                cell.task = Task(title: "", duration: "", status: .UNDONE)
-            } else {
-                cell.isHidden = true
-            }
-        } else if tableView == topTableView {
-            if indexPath.row >= emptyRows && indexPath.row <= emptyRows + tasks.count - 1 {
-                cell.task = tasks[indexPath.row - emptyRows]
-            } else {
-                cell.isHidden = true
-            }
-        } else if tableView == bottomTableView {
-            if indexPath.row < tasks.count {
-                cell.task = tasks[indexPath.row]
-            } else if indexPath.row == tasks.count {
-                cell.task = Task(title: "", duration: "", status: .UNDONE)
-            } else {
-                cell.isHidden = true
-            }
-        }
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView == topTableView {
-            centreTableView.scrollToRow(at: IndexPath(row: indexPath.row - emptyRows, section: indexPath.section), at: .top, animated: true)
-        } else if tableView == bottomTableView {
+        if mainButton.titleLabel?.text == "New" {
+            mainButton.setTitle("Confirm", for: .normal)
+            let indexPath = IndexPath(item: tasks.count, section: 0)
             centreTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        } else {
+            mainButton.setTitle("New", for: .normal)
         }
     }
-    
-    func setupTableView(_ tableView: UITableView) {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.clipsToBounds = true
-        tableView.alpha = 0.25
-        tableView.backgroundColor  = .black
-        tableView.estimatedRowHeight = rowHeight
-        tableView.rowHeight = rowHeight
-        tableView.register(UINib(nibName: "MainCellView", bundle: nil), forCellReuseIdentifier: "Cell")
-    }
-    
-    func reloadTablesViews() {
-        topTableView.reloadData()
-        centreTableView.reloadData()
-        bottomTableView.reloadData()
-    }
-    
-    func setupMainButton() {
-        // create gradient background
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = mainButton.bounds
-        gradientLayer.colors = [buttonGradient[0].cgColor, buttonGradient[1].cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-        mainButton.layer.insertSublayer(gradientLayer, at: 0)
-        
-        // create round rect
-        mainButton.layer.cornerRadius = mainButton.frame.height/5
-        mainButton.clipsToBounds = true
-    }
-    
-    // hide cancel and delete buttons
-    func hideButtons() {
-        cancelButton.isHidden = true
-        cancelEditButton.isHidden = true
-        deleteEditButton.isHidden = true
-    }
-
 }
