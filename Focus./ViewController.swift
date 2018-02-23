@@ -92,14 +92,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func mainAction(_ sender: Any) {
         if mainButton.titleLabel?.text == "New" {
-            mainButton.setTitle("Confirm", for: .normal)
             let indexPath = IndexPath(item: tasks.count, section: 0)
             centreTableView.scrollToRow(at: indexPath, at: .top, animated: true)
         } else if mainButton.titleLabel?.text == "Done" {
             closeTimePicker()
-        } else if mainButton.titleLabel?.text == "Confirm" {
-            mainButton.setTitle("New", for: .normal)
-            view.endEditing(true)
         }
     }
 }

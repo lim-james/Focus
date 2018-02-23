@@ -44,13 +44,16 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     
     @IBAction func selectTimeAction(_ sender: Any) {
         timeDelegate.openTimePicker(with: task)
+        titleView.resignFirstResponder()
     }
     
     func checkTask(_ content: String) {
-        let prev = task.title
-        task.title = content
-        if prev.isEmpty { taskDelegate.addTask(task) }
-        else { updateDelegate.reloadTableViews() }
+        if !content.isEmpty {
+            let prev = task.title
+            task.title = content
+            if prev.isEmpty { taskDelegate.addTask(task) }
+            else { updateDelegate.reloadTableViews() }
+        }
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -62,8 +65,8 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
-            textView.resignFirstResponder()
             checkTask(textView.text)
+            textView.resignFirstResponder()
             return false
         }
         return true
@@ -73,6 +76,9 @@ class MainCell: UITableViewCell, UITextViewDelegate {
         if textView.textColor == .lightText {
             textView.textColor = .white
             textView.text = ""
+            DispatchQueue.main.async {
+                self.timeDelegate.closeTimePicker()
+            }
         }
     }
     

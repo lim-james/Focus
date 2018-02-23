@@ -40,11 +40,15 @@ extension ViewController: TimeDelegate {
     }
     
     func closeTimePicker() {
+        topTableView.isScrollEnabled = true
+        centreTableView.isScrollEnabled = true
+        bottomTableView.isScrollEnabled = true
+        
         mainButton.setTitle(previousMessage, for: .normal)
         bottomMultiplier = bottomMultiplier.setMultiplier(CGFloat(emptyRows + 1))
         UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
-            self.bottomTableView.alpha = 1
+            self.bottomTableView.alpha = 0.25
             self.pickerContainer.alpha = 0
         }
     }
