@@ -15,6 +15,7 @@ protocol TaskDelegate {
 
 protocol TimeDelegate {
     func openTimePicker(with task: Task)
+    func updateTime()
 }
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -90,6 +91,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             mainButton.setTitle("Confirm", for: .normal)
             let indexPath = IndexPath(item: tasks.count, section: 0)
             centreTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        } else if mainButton.titleLabel?.text == "Done" {
+            updateTime()
         } else {
             mainButton.setTitle("New", for: .normal)
         }
