@@ -42,7 +42,7 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     }
     
     @IBAction func selectTimeAction(_ sender: Any) {
-        timeDelegate.editTime(of: task)
+        timeDelegate.openTimePicker(with: task)
     }
     
     func checkTask(_ content: String) {

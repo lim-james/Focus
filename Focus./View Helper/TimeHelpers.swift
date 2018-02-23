@@ -9,8 +9,15 @@
 import UIKit
 
 extension ViewController: TimeDelegate {
-    func editTime(of task: Task) {
+    func openTimePicker(with task: Task) {
         pickerView.selectRow(task.hours, inComponent: 0, animated: true)
         pickerView.selectRow(task.minutes, inComponent: 2, animated: true)
+        
+        bottomMultiplier = bottomMultiplier.setMultiplier(1)
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+            self.bottomTableView.alpha = 0
+            self.pickerContainer.alpha = 1
+        }
     }
 }

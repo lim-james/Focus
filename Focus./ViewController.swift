@@ -14,7 +14,7 @@ protocol TaskDelegate {
 }
 
 protocol TimeDelegate {
-    func editTime(of task: Task)
+    func openTimePicker(with task: Task)
 }
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -57,6 +57,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setupTableView(topTableView)
         setupTableView(centreTableView)
         setupTableView(bottomTableView)
+        
+        pickerContainer.alpha = 0
         
         pickerView.delegate = self
         pickerView.dataSource = self
