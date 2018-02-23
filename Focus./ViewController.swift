@@ -54,6 +54,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setupTableView(bottomTableView)
         
         centreTableView.alpha = 1
+        centreTableView.superview?.bringSubview(toFront: centreTableView)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,7 +62,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setupMainButton()
         hideButtons()
         
-        emptyRows = Int(view.frame.height/rowHeight)
+        emptyRows = Int((view.frame.height/rowHeight)/2)
         topMultiplier = topMultiplier.setMultiplier(CGFloat(emptyRows + 1))
         bottomMultiplier = bottomMultiplier.setMultiplier(CGFloat(emptyRows + 1))
         reloadTablesViews()
@@ -110,6 +111,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func syncScrolls(_ scrollView: UIScrollView) {
+         view.endEditing(true)
         switch scrollView {
         case topTableView:
             centreTableView.contentOffset.y = topTableView.contentOffset.y
@@ -129,10 +131,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let button = sender as! UIButton
         if button.titleLabel?.text == "New" {
             button.setTitle("Confirm", for: .normal)
-//            centreTableView.scrollToRow(at: IndexPath(item: tasks.count, section: <#T##Int#>), at: <#T##UITableViewScrollPosition#>, animated: <#T##Bool#>)
         } else {
             
         }
+        let indexPath = IndexPath(item: tasks.count, section: 0)
+        centreTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        let cell = centreTableView.cellForRow(at: indexPath) as! MainCell
+        cell.titleView.becomeFirstResponder()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -141,28 +146,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView != centreTableView {
-            return tasks.count + emptyRows
+            return tasks.count + emptyRows + 1
         }
-        return tasks.count
+        return tasks.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainCell
+        cell.isHidden = false
         if tableView == centreTableView {
-            cell.task = tasks[indexPath.row]
+            cell.interactionView.isHidden = true
             cell.backgroundColor = .black
-            cell.isHidden = false
+            if indexPath.row < tasks.count {
+                cell.task = tasks[indexPath.row]
+            } else if indexPath.row == tasks.count {
+                cell.task = Task(title: "", duration: "", status: .UNDONE)
+            } else {
+                cell.isHidden = true
+            }
         } else if tableView == topTableView {
-            if indexPath.row >= emptyRows {
+            if indexPath.row >= emptyRows && indexPath.row <= emptyRows + tasks.count - 1 {
                 cell.task = tasks[indexPath.row - emptyRows]
-                cell.isHidden = false
             } else {
                 cell.isHidden = true
             }
         } else if tableView == bottomTableView {
             if indexPath.row < tasks.count {
                 cell.task = tasks[indexPath.row]
-                cell.isHidden = false
+            } else if indexPath.row == tasks.count {
+                cell.task = Task(title: "", duration: "", status: .UNDONE)
             } else {
                 cell.isHidden = true
             }
