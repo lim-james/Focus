@@ -25,7 +25,7 @@ extension UITextView {
     }
     
     func removeTextUntilSatisfying() {
-        while numberOfLines() > 2 {
+        while numberOfLines() > textContainer.maximumNumberOfLines {
             text.removeLast()
         }
     }

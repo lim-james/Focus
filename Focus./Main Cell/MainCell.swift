@@ -14,12 +14,19 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var interactionView: UIView!
     
-    var delegate: TaskDelegate!
+    var taskDelegate: TaskDelegate!
+    var timeDelegate: TimeDelegate!
     
     var task: Task! {
         didSet {
-            titleView.text = task.title
-            statusLabel.text =  task.getStatus()
+            if task.title.isEmpty {
+                titleView.textColor = .lightText
+                titleView.text = "New task"
+            } else {
+                titleView.textColor = .white
+                titleView.text = task.title
+            }
+            statusLabel.text = task.getStatus()
         }
     }
     
@@ -29,23 +36,26 @@ class MainCell: UITableViewCell, UITextViewDelegate {
         titleView.delegate = self
         titleView.text = ""
         titleView.textContainer.maximumNumberOfLines = 2
-//        titleView.textContainer.lineBreakMode = .byWordWrapping
         titleView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         titleView.tintColor = UIColor(red: 0, green: 253/255, blue: 254/255, alpha: 1)
         statusLabel.text = ""
     }
     
+    @IBAction func selectTimeAction(_ sender: Any) {
+        timeDelegate.editTime(of: task)
+    }
+    
     func checkTask(_ content: String) {
         let prev = task.title
-        task = Task(id: task.id, title: content, duration: task.duration, status: task.status)
-        if prev.isEmpty { delegate.addTask(task) }
-        else { delegate.updateTask(task) }
+        task = Task(id: task.id, title: content, hours: task.hours, minutes: task.minutes, status: task.status)
+        if prev.isEmpty { taskDelegate.addTask(task) }
+        else { taskDelegate.updateTask(task) }
     }
     
     func textViewDidChange(_ textView: UITextView) {
         if textView.numberOfLines() > 2 {
-            titleView.removeTextUntilSatisfying()
-            titleView.resignFirstResponder()
+            textView.removeTextUntilSatisfying()
+            textView.resignFirstResponder()
         }
     }
     
@@ -58,8 +68,22 @@ class MainCell: UITableViewCell, UITextViewDelegate {
         return true
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == .lightText {
+            textView.textColor = .white
+            textView.text = ""
+        }
+    }
+    
     func textViewDidEndEditing(_ textView: UITextView) {
-        checkTask(textView.text)
+        if textView.text.isEmpty {
+            if task.title.isEmpty {
+                textView.textColor = .lightText
+                textView.text = "New task"
+            }
+        } else {
+            checkTask(textView.text)
+        }
     }
 
 }

@@ -13,7 +13,11 @@ protocol TaskDelegate {
     func updateTask(_ task: Task)
 }
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+protocol TimeDelegate {
+    func editTime(of task: Task)
+}
+
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var tasks: [Task] = []
     var current = 0
@@ -31,6 +35,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var centreTableView: UITableView!
     @IBOutlet weak var bottomTableView: UITableView!
     
+    @IBOutlet weak var pickerContainer: UIView!
+    @IBOutlet weak var pickerView: UIPickerView!
+    
     var buttonGradient = [UIColor(red: 0, green: 253/255, blue: 254/255, alpha: 1), UIColor(red: 0, green: 250/255, blue: 146/255, alpha: 1)]
     
     @IBOutlet weak var mainButton: UIButton! // new task, confirm edit or creation
@@ -45,18 +52,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tasks.append(Task(id: 0, title: "Example of completed event", duration: "1h", status: .DONE))
-        tasks.append(Task(id: 1, title: "This was skipped because the person was not determined enough", duration: "3h 30m", status: .SKIPPED))
-        tasks.append(Task(id: 2, title: "Timed event", duration: "1h 30m", status: .DOING))
-        tasks.append(Task(id: 3, title: "Events that loops unless stopped", duration: "30m", status: .UNDONE))
-        tasks.append(Task(id: 4, title: "This could be an event that was skipped by the user", duration: "1h 30m", status: .UNDONE))
-        tasks.append(Task(id: 5, title: "More events just to test out the scroll", duration: "5m", status: .UNDONE))
-        tasks.append(Task(id: 6, title: "If you're wondering this was made of 3 table views", duration: "1h 30m", status: .UNDONE))
-        tasks.append(Task(id: 7, title: "Apple made it the same I just adapted", duration: "30m", status: .UNDONE))
+        tasks.append(Task(id: 0, title: "First task", hours: 1, minutes: 30, status: .UNDONE))
         
         setupTableView(topTableView)
         setupTableView(centreTableView)
         setupTableView(bottomTableView)
+        
+        pickerView.delegate = self
+        pickerView.dataSource = self
         
         centreTableView.alpha = 1
         centreTableView.superview?.bringSubview(toFront: centreTableView)

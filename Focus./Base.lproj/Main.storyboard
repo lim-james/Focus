@@ -25,6 +25,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="92" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7i2-Cg-pCE">
+                                <rect key="frame" x="16" y="12" width="343" height="368"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="CGa-pK-YlG" customClass="MainCell" customModule="Focus_" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="92"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CGa-pK-YlG" id="HjO-n8-ix4">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="92"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="92" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D0v-1f-w1v">
                                 <rect key="frame" x="16" y="287.5" width="343" height="368"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -126,23 +143,21 @@
                                     <constraint firstAttribute="height" id="Xe9-4H-p1p"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="92" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7i2-Cg-pCE">
-                                <rect key="frame" x="16" y="12" width="343" height="368"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="CGa-pK-YlG" customClass="MainCell" customModule="Focus_" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="92"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CGa-pK-YlG" id="HjO-n8-ix4">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="92"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXx-sK-b1g">
+                                <rect key="frame" x="0.0" y="380" width="375" height="211"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yhG-MT-tQB">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="yhG-MT-tQB" firstAttribute="leading" secondItem="MXx-sK-b1g" secondAttribute="leading" id="GdI-Ki-QYE"/>
+                                    <constraint firstItem="yhG-MT-tQB" firstAttribute="top" secondItem="MXx-sK-b1g" secondAttribute="top" id="T21-fF-Zql"/>
+                                    <constraint firstAttribute="bottom" secondItem="yhG-MT-tQB" secondAttribute="bottom" id="t5y-Sv-X2b"/>
+                                    <constraint firstAttribute="trailing" secondItem="yhG-MT-tQB" secondAttribute="trailing" id="wjY-cb-lpa"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -167,10 +182,13 @@
                             <constraint firstItem="mkK-vf-RYg" firstAttribute="top" secondItem="7i2-Cg-pCE" secondAttribute="bottom" id="YyO-oG-Qat"/>
                             <constraint firstItem="FmR-qb-RBm" firstAttribute="leading" secondItem="eBu-fJ-Yum" secondAttribute="leading" constant="16" id="ZTJ-xp-Yae"/>
                             <constraint firstItem="g4I-7A-AAC" firstAttribute="leading" secondItem="bdI-Ox-4VF" secondAttribute="trailing" id="bRg-EG-jS9"/>
+                            <constraint firstItem="MXx-sK-b1g" firstAttribute="trailing" secondItem="eBu-fJ-Yum" secondAttribute="trailing" id="dgF-jy-cdE"/>
                             <constraint firstItem="eBu-fJ-Yum" firstAttribute="trailing" secondItem="Lge-cm-Fmi" secondAttribute="trailing" constant="16" id="h8U-c8-uBN"/>
                             <constraint firstItem="3e2-19-EQy" firstAttribute="top" secondItem="g4I-7A-AAC" secondAttribute="bottom" constant="16" id="hDT-fL-GB4"/>
+                            <constraint firstItem="MXx-sK-b1g" firstAttribute="leading" secondItem="eBu-fJ-Yum" secondAttribute="leading" id="hqL-Uf-FN3"/>
                             <constraint firstItem="Xc1-cq-dfl" firstAttribute="trailing" secondItem="eBu-fJ-Yum" secondAttribute="trailing" id="iQC-8b-hG4"/>
                             <constraint firstItem="eBu-fJ-Yum" firstAttribute="trailing" secondItem="3e2-19-EQy" secondAttribute="trailing" constant="16" id="ii5-lJ-1i9"/>
+                            <constraint firstItem="MXx-sK-b1g" firstAttribute="top" secondItem="7i2-Cg-pCE" secondAttribute="bottom" id="jJ3-Q1-F5J"/>
                             <constraint firstItem="D0v-1f-w1v" firstAttribute="leading" secondItem="eBu-fJ-Yum" secondAttribute="leading" constant="16" id="jMF-Ep-LzM"/>
                             <constraint firstItem="D0v-1f-w1v" firstAttribute="top" secondItem="bxM-0X-UWb" secondAttribute="bottom" id="lvg-H0-Jkc"/>
                             <constraint firstItem="Lge-cm-Fmi" firstAttribute="top" secondItem="bxM-0X-UWb" secondAttribute="bottom" id="m33-xS-pd7"/>
@@ -178,6 +196,7 @@
                             <constraint firstItem="bdI-Ox-4VF" firstAttribute="width" secondItem="g4I-7A-AAC" secondAttribute="width" id="pnc-ay-N3t"/>
                             <constraint firstItem="mkK-vf-RYg" firstAttribute="leading" secondItem="eBu-fJ-Yum" secondAttribute="leading" constant="16" id="tkt-Bh-as6"/>
                             <constraint firstItem="Xc1-cq-dfl" firstAttribute="bottom" secondItem="eBu-fJ-Yum" secondAttribute="bottom" id="ud3-0z-eE2"/>
+                            <constraint firstItem="Xc1-cq-dfl" firstAttribute="top" secondItem="MXx-sK-b1g" secondAttribute="bottom" id="vaS-VN-bq0"/>
                             <constraint firstItem="eBu-fJ-Yum" firstAttribute="trailing" secondItem="D0v-1f-w1v" secondAttribute="trailing" constant="16" id="zXB-ze-RXK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eBu-fJ-Yum"/>
@@ -190,6 +209,8 @@
                         <outlet property="centreTableView" destination="Lge-cm-Fmi" id="zQC-Y8-hWB"/>
                         <outlet property="deleteEditButton" destination="bdI-Ox-4VF" id="k6Q-Ej-KCp"/>
                         <outlet property="mainButton" destination="3e2-19-EQy" id="r0y-XQ-pmp"/>
+                        <outlet property="pickerContainer" destination="MXx-sK-b1g" id="pAe-XD-Ifv"/>
+                        <outlet property="pickerView" destination="yhG-MT-tQB" id="sTe-MG-b30"/>
                         <outlet property="topMultiplier" destination="182-HF-O91" id="oB7-cu-eG1"/>
                         <outlet property="topTableView" destination="7i2-Cg-pCE" id="ebp-hy-iEC"/>
                     </connections>

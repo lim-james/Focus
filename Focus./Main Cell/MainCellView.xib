@@ -45,6 +45,12 @@ Like this</string>
                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                     </textView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XR4-f5-SgV">
+                        <rect key="frame" x="0.0" y="50" width="343" height="42"/>
+                        <connections>
+                            <action selector="selectTimeAction:" destination="dgt-Ky-4Aa" eventType="touchUpInside" id="nbb-3k-z4f"/>
+                        </connections>
+                    </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5n5-Vz-Kp8">
                         <rect key="frame" x="0.0" y="0.0" width="343" height="92"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -52,14 +58,18 @@ Like this</string>
                 </subviews>
                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
+                    <constraint firstItem="XR4-f5-SgV" firstAttribute="leading" secondItem="jXf-GT-L7G" secondAttribute="leading" id="BEJ-x6-yNU"/>
+                    <constraint firstItem="XR4-f5-SgV" firstAttribute="top" secondItem="Kcc-9M-3og" secondAttribute="bottom" id="I0r-O5-kHD"/>
                     <constraint firstItem="5n5-Vz-Kp8" firstAttribute="top" secondItem="jXf-GT-L7G" secondAttribute="top" id="IpG-J2-eW3"/>
                     <constraint firstItem="Yoj-gC-8iS" firstAttribute="leading" secondItem="jXf-GT-L7G" secondAttribute="leading" id="JCk-oY-86a"/>
                     <constraint firstAttribute="trailing" secondItem="Kcc-9M-3og" secondAttribute="trailing" id="KNt-KB-2Uc"/>
+                    <constraint firstAttribute="bottom" secondItem="XR4-f5-SgV" secondAttribute="bottom" id="OUP-zH-LEJ"/>
                     <constraint firstAttribute="trailing" secondItem="Yoj-gC-8iS" secondAttribute="trailing" id="fSe-U6-fcV"/>
                     <constraint firstAttribute="trailing" secondItem="5n5-Vz-Kp8" secondAttribute="trailing" id="frc-wN-y5d"/>
                     <constraint firstItem="Yoj-gC-8iS" firstAttribute="top" secondItem="Kcc-9M-3og" secondAttribute="bottom" id="fux-vl-qiu"/>
                     <constraint firstItem="Kcc-9M-3og" firstAttribute="top" secondItem="jXf-GT-L7G" secondAttribute="top" id="gAt-Wb-DyY"/>
                     <constraint firstAttribute="bottom" secondItem="5n5-Vz-Kp8" secondAttribute="bottom" id="mN7-Re-XP8"/>
+                    <constraint firstAttribute="trailing" secondItem="XR4-f5-SgV" secondAttribute="trailing" id="nfJ-AH-tLH"/>
                     <constraint firstItem="Kcc-9M-3og" firstAttribute="leading" secondItem="jXf-GT-L7G" secondAttribute="leading" id="o2D-jj-qUo"/>
                     <constraint firstAttribute="bottom" secondItem="Yoj-gC-8iS" secondAttribute="bottom" constant="20" id="q5e-Mf-m6u"/>
                     <constraint firstItem="5n5-Vz-Kp8" firstAttribute="leading" secondItem="jXf-GT-L7G" secondAttribute="leading" id="svZ-Ft-Z8A"/>

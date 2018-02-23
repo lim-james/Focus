@@ -18,19 +18,26 @@ enum Status {
 struct Task {
     var id: Int
     var title: String
-    var duration: String
+    var hours: Int
+    var minutes: Int
     var status: Status
 }
 
 extension Task {
+    var getFormattedDuration: String {
+        let h = hours == 0 ? "" : "\(hours)h "
+        let m = minutes == 0 ? "" : "\(minutes)m"
+        return "\(h)\(m)"
+    }
+    
     func getStatus() -> String {
         switch status {
         case .DONE:
             return "Done"
         case .DOING:
-            return "\(duration) left"
+            return "\(getFormattedDuration) left"
         case .UNDONE:
-            return "\(duration)"
+            return "\(getFormattedDuration)"
         case .SKIPPED:
             return "Skipped"
         }

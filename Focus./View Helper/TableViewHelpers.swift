@@ -40,14 +40,15 @@ extension ViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainCell
         cell.isHidden = false
-        cell.delegate = self
+        cell.taskDelegate = self
+        cell.timeDelegate = self
         if tableView == centreTableView {
             cell.interactionView.isHidden = true
             cell.backgroundColor = .black
             if indexPath.row < tasks.count {
                 cell.task = tasks[indexPath.row]
             } else if indexPath.row == tasks.count {
-                cell.task = Task(id: indexPath.row, title: "", duration: "", status: .UNDONE)
+                cell.task = Task(id: indexPath.row, title: "", hours: 1, minutes: 30, status: .UNDONE)
             } else {
                 cell.isHidden = true
             }
@@ -61,7 +62,7 @@ extension ViewController {
             if indexPath.row < tasks.count {
                 cell.task = tasks[indexPath.row]
             } else if indexPath.row == tasks.count {
-                cell.task = Task(id: indexPath.row, title: "", duration: "", status: .UNDONE)
+                cell.task = Task(id: indexPath.row, title: "", hours: 1, minutes: 30, status: .UNDONE)
             } else {
                 cell.isHidden = true
             }

@@ -17,8 +17,10 @@
 		74A29BF7203FA70200834062 /* ScrollHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A29BF6203FA70200834062 /* ScrollHelpers.swift */; };
 		74A29BF9203FA74200834062 /* TableViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A29BF8203FA74200834062 /* TableViewHelpers.swift */; };
 		74A29BFB203FA7AD00834062 /* ButtonHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A29BFA203FA7AD00834062 /* ButtonHelpers.swift */; };
-		74A29BFD203FA7CE00834062 /* TaskHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A29BFC203FA7CE00834062 /* TaskHelper.swift */; };
+		74A29BFD203FA7CE00834062 /* TaskHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A29BFC203FA7CE00834062 /* TaskHelpers.swift */; };
 		74A29C03203FAFBA00834062 /* TextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A29C02203FAFBA00834062 /* TextViewExtension.swift */; };
+		74A29C06203FB77A00834062 /* PickerViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A29C05203FB77A00834062 /* PickerViewHelpers.swift */; };
+		74A29C08203FBB5000834062 /* TimeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A29C07203FBB5000834062 /* TimeHelpers.swift */; };
 		74FD11F6203EC17C006800A1 /* MainCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74FD11F5203EC17C006800A1 /* MainCellView.xib */; };
 		74FD11F8203ECCEE006800A1 /* LayoutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FD11F7203ECCEE006800A1 /* LayoutExtension.swift */; };
 /* End PBXBuildFile section */
@@ -36,8 +38,10 @@
 		74A29BF6203FA70200834062 /* ScrollHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollHelpers.swift; sourceTree = "<group>"; };
 		74A29BF8203FA74200834062 /* TableViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHelpers.swift; sourceTree = "<group>"; };
 		74A29BFA203FA7AD00834062 /* ButtonHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHelpers.swift; sourceTree = "<group>"; };
-		74A29BFC203FA7CE00834062 /* TaskHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskHelper.swift; sourceTree = "<group>"; };
+		74A29BFC203FA7CE00834062 /* TaskHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskHelpers.swift; sourceTree = "<group>"; };
 		74A29C02203FAFBA00834062 /* TextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewExtension.swift; sourceTree = "<group>"; };
+		74A29C05203FB77A00834062 /* PickerViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewHelpers.swift; sourceTree = "<group>"; };
+		74A29C07203FBB5000834062 /* TimeHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHelpers.swift; sourceTree = "<group>"; };
 		74FD11F5203EC17C006800A1 /* MainCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCellView.xib; sourceTree = "<group>"; };
 		74FD11F7203ECCEE006800A1 /* LayoutExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,7 +105,9 @@
 				74A29BFA203FA7AD00834062 /* ButtonHelpers.swift */,
 				74A29BF6203FA70200834062 /* ScrollHelpers.swift */,
 				74A29BF8203FA74200834062 /* TableViewHelpers.swift */,
-				74A29BFC203FA7CE00834062 /* TaskHelper.swift */,
+				74A29BFC203FA7CE00834062 /* TaskHelpers.swift */,
+				74A29C07203FBB5000834062 /* TimeHelpers.swift */,
+				74A29C05203FB77A00834062 /* PickerViewHelpers.swift */,
 			);
 			path = "View Helper";
 			sourceTree = "<group>";
@@ -188,15 +194,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74A29C06203FB77A00834062 /* PickerViewHelpers.swift in Sources */,
 				74A29BF9203FA74200834062 /* TableViewHelpers.swift in Sources */,
 				7491CACA203E6B1500E61C5A /* Task.swift in Sources */,
 				7491CACE203E80CD00E61C5A /* MainCell.swift in Sources */,
 				74A29C03203FAFBA00834062 /* TextViewExtension.swift in Sources */,
 				7491CAB4203E5A4800E61C5A /* AppDelegate.swift in Sources */,
+				74A29C08203FBB5000834062 /* TimeHelpers.swift in Sources */,
 				74FD11F8203ECCEE006800A1 /* LayoutExtension.swift in Sources */,
 				74A29BFB203FA7AD00834062 /* ButtonHelpers.swift in Sources */,
 				74A29BF7203FA70200834062 /* ScrollHelpers.swift in Sources */,
-				74A29BFD203FA7CE00834062 /* TaskHelper.swift in Sources */,
+				74A29BFD203FA7CE00834062 /* TaskHelpers.swift in Sources */,
 				7491CACC203E7F5F00E61C5A /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
