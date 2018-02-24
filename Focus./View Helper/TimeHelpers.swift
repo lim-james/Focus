@@ -36,6 +36,10 @@ extension ViewController: TimeDelegate {
     func updateTime() {
         current.hours = pickerView.selectedRow(inComponent: 0)
         current.minutes = pickerView.selectedRow(inComponent: 2)
+        if current.getFormattedDuration == "" {
+            current.minutes = 1
+            pickerView.selectRow(current.minutes, inComponent: 2, animated: true)
+        }
         reloadTableViews()
     }
     
