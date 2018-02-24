@@ -22,11 +22,4 @@ extension ViewController {
         mainButton.layer.cornerRadius = mainButton.frame.height/5
         mainButton.clipsToBounds = true
     }
-    
-    // hide cancel and delete buttons
-    func hideButtons() {
-        cancelButton.isHidden = true
-        cancelEditButton.isHidden = true
-        deleteEditButton.isHidden = true
-    }
 }

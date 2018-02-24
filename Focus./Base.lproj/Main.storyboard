@@ -13,7 +13,6 @@
     <customFonts key="customFonts">
         <array key="AvenirNext.ttc">
             <string>AvenirNext-Bold</string>
-            <string>AvenirNext-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -114,36 +113,13 @@
                                     <action selector="mainAction:" destination="7bX-mN-LSW" eventType="touchUpInside" id="cKD-eJ-VHM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmR-qb-RBm">
-                                <rect key="frame" x="16" y="547" width="343" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bhb-eO-Cth">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="jVt-nO-AA2"/>
+                                    <constraint firstAttribute="height" constant="76" id="af4-Rm-NHQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4I-7A-AAC">
-                                <rect key="frame" x="187.5" y="547" width="171.5" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="tjF-zX-XSI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdI-Ox-4VF">
-                                <rect key="frame" x="16" y="547" width="171.5" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="vzT-m9-uHx"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                <state key="normal" title="Delete">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkK-vf-RYg">
                                 <rect key="frame" x="16" y="380" width="343" height="0.0"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -164,27 +140,21 @@
                             <constraint firstItem="7i2-Cg-pCE" firstAttribute="height" secondItem="Lge-cm-Fmi" secondAttribute="height" multiplier="4" id="182-HF-O91"/>
                             <constraint firstItem="Lge-cm-Fmi" firstAttribute="leading" secondItem="eBu-fJ-Yum" secondAttribute="leading" constant="16" id="2lb-2g-MOm"/>
                             <constraint firstItem="7i2-Cg-pCE" firstAttribute="leading" secondItem="eBu-fJ-Yum" secondAttribute="leading" constant="16" id="4RP-fs-7dz"/>
-                            <constraint firstItem="eBu-fJ-Yum" firstAttribute="trailing" secondItem="g4I-7A-AAC" secondAttribute="trailing" constant="16" id="5e5-xC-Ecl"/>
-                            <constraint firstItem="eBu-fJ-Yum" firstAttribute="trailing" secondItem="FmR-qb-RBm" secondAttribute="trailing" constant="16" id="6up-QF-nV1"/>
-                            <constraint firstItem="g4I-7A-AAC" firstAttribute="leading" secondItem="bdI-Ox-4VF" secondAttribute="trailing" id="8WS-1E-WrU"/>
+                            <constraint firstItem="Bhb-eO-Cth" firstAttribute="leading" secondItem="eBu-fJ-Yum" secondAttribute="leading" id="7CD-6M-1U9"/>
                             <constraint firstItem="3e2-19-EQy" firstAttribute="leading" secondItem="eBu-fJ-Yum" secondAttribute="leading" constant="16" id="8z6-RB-wwJ"/>
                             <constraint firstItem="bxM-0X-UWb" firstAttribute="leading" secondItem="DfO-4y-ed1" secondAttribute="leading" constant="16" id="CQa-sj-wtr"/>
                             <constraint firstItem="mkK-vf-RYg" firstAttribute="top" secondItem="Lge-cm-Fmi" secondAttribute="bottom" id="Enc-XI-ZJu"/>
+                            <constraint firstItem="Bhb-eO-Cth" firstAttribute="trailing" secondItem="eBu-fJ-Yum" secondAttribute="trailing" id="HLq-P7-kW1"/>
                             <constraint firstAttribute="trailing" secondItem="bxM-0X-UWb" secondAttribute="trailing" constant="16" id="HeF-AN-JEf"/>
                             <constraint firstItem="Lge-cm-Fmi" firstAttribute="centerY" secondItem="DfO-4y-ed1" secondAttribute="centerY" id="Ibd-ny-6g6"/>
                             <constraint firstItem="D0v-1f-w1v" firstAttribute="height" secondItem="Lge-cm-Fmi" secondAttribute="height" multiplier="4" id="KJe-ei-Vg9"/>
                             <constraint firstItem="eBu-fJ-Yum" firstAttribute="trailing" secondItem="7i2-Cg-pCE" secondAttribute="trailing" constant="16" id="KeZ-CO-vij"/>
-                            <constraint firstItem="3e2-19-EQy" firstAttribute="top" secondItem="FmR-qb-RBm" secondAttribute="bottom" constant="16" id="OoV-Gu-ieP"/>
-                            <constraint firstItem="bdI-Ox-4VF" firstAttribute="leading" secondItem="eBu-fJ-Yum" secondAttribute="leading" constant="16" id="PXf-Se-aRX"/>
                             <constraint firstItem="eBu-fJ-Yum" firstAttribute="bottom" secondItem="3e2-19-EQy" secondAttribute="bottom" constant="16" id="QqR-3i-O4i"/>
                             <constraint firstItem="Xc1-cq-dfl" firstAttribute="leading" secondItem="eBu-fJ-Yum" secondAttribute="leading" id="Tw5-3q-RXF"/>
                             <constraint firstItem="eBu-fJ-Yum" firstAttribute="trailing" secondItem="mkK-vf-RYg" secondAttribute="trailing" constant="16" id="Y9p-aO-yo7"/>
                             <constraint firstItem="mkK-vf-RYg" firstAttribute="top" secondItem="7i2-Cg-pCE" secondAttribute="bottom" id="YyO-oG-Qat"/>
-                            <constraint firstItem="FmR-qb-RBm" firstAttribute="leading" secondItem="eBu-fJ-Yum" secondAttribute="leading" constant="16" id="ZTJ-xp-Yae"/>
-                            <constraint firstItem="g4I-7A-AAC" firstAttribute="leading" secondItem="bdI-Ox-4VF" secondAttribute="trailing" id="bRg-EG-jS9"/>
                             <constraint firstItem="MXx-sK-b1g" firstAttribute="trailing" secondItem="eBu-fJ-Yum" secondAttribute="trailing" id="dgF-jy-cdE"/>
                             <constraint firstItem="eBu-fJ-Yum" firstAttribute="trailing" secondItem="Lge-cm-Fmi" secondAttribute="trailing" constant="16" id="h8U-c8-uBN"/>
-                            <constraint firstItem="3e2-19-EQy" firstAttribute="top" secondItem="g4I-7A-AAC" secondAttribute="bottom" constant="16" id="hDT-fL-GB4"/>
                             <constraint firstItem="MXx-sK-b1g" firstAttribute="leading" secondItem="eBu-fJ-Yum" secondAttribute="leading" id="hqL-Uf-FN3"/>
                             <constraint firstItem="Xc1-cq-dfl" firstAttribute="trailing" secondItem="eBu-fJ-Yum" secondAttribute="trailing" id="iQC-8b-hG4"/>
                             <constraint firstItem="eBu-fJ-Yum" firstAttribute="trailing" secondItem="3e2-19-EQy" secondAttribute="trailing" constant="16" id="ii5-lJ-1i9"/>
@@ -192,11 +162,10 @@
                             <constraint firstItem="D0v-1f-w1v" firstAttribute="leading" secondItem="eBu-fJ-Yum" secondAttribute="leading" constant="16" id="jMF-Ep-LzM"/>
                             <constraint firstItem="D0v-1f-w1v" firstAttribute="top" secondItem="bxM-0X-UWb" secondAttribute="bottom" id="lvg-H0-Jkc"/>
                             <constraint firstItem="Lge-cm-Fmi" firstAttribute="top" secondItem="bxM-0X-UWb" secondAttribute="bottom" id="m33-xS-pd7"/>
-                            <constraint firstItem="3e2-19-EQy" firstAttribute="top" secondItem="bdI-Ox-4VF" secondAttribute="bottom" constant="16" id="oZP-TE-Em7"/>
-                            <constraint firstItem="bdI-Ox-4VF" firstAttribute="width" secondItem="g4I-7A-AAC" secondAttribute="width" id="pnc-ay-N3t"/>
                             <constraint firstItem="mkK-vf-RYg" firstAttribute="leading" secondItem="eBu-fJ-Yum" secondAttribute="leading" constant="16" id="tkt-Bh-as6"/>
                             <constraint firstItem="Xc1-cq-dfl" firstAttribute="bottom" secondItem="eBu-fJ-Yum" secondAttribute="bottom" id="ud3-0z-eE2"/>
                             <constraint firstItem="Xc1-cq-dfl" firstAttribute="top" secondItem="MXx-sK-b1g" secondAttribute="bottom" id="vaS-VN-bq0"/>
+                            <constraint firstItem="Bhb-eO-Cth" firstAttribute="top" secondItem="DfO-4y-ed1" secondAttribute="top" id="vj3-nf-vvA"/>
                             <constraint firstItem="eBu-fJ-Yum" firstAttribute="trailing" secondItem="D0v-1f-w1v" secondAttribute="trailing" constant="16" id="zXB-ze-RXK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eBu-fJ-Yum"/>
@@ -204,10 +173,7 @@
                     <connections>
                         <outlet property="bottomMultiplier" destination="KJe-ei-Vg9" id="cxn-oy-4CA"/>
                         <outlet property="bottomTableView" destination="D0v-1f-w1v" id="vM2-WP-zRo"/>
-                        <outlet property="cancelButton" destination="FmR-qb-RBm" id="zPk-9U-Px4"/>
-                        <outlet property="cancelEditButton" destination="g4I-7A-AAC" id="cmU-Vc-yd2"/>
                         <outlet property="centreTableView" destination="Lge-cm-Fmi" id="zQC-Y8-hWB"/>
-                        <outlet property="deleteEditButton" destination="bdI-Ox-4VF" id="k6Q-Ej-KCp"/>
                         <outlet property="mainButton" destination="3e2-19-EQy" id="r0y-XQ-pmp"/>
                         <outlet property="pickerContainer" destination="MXx-sK-b1g" id="pAe-XD-Ifv"/>
                         <outlet property="pickerView" destination="yhG-MT-tQB" id="sTe-MG-b30"/>
