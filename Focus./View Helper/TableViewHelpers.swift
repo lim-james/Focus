@@ -43,7 +43,7 @@ extension ViewController {
             if indexPath.row < tasks.count {
                 cell.task = tasks[indexPath.row]
             } else if indexPath.row == tasks.count {
-                cell.task = Task(id: indexPath.row, title: "", hours: 1, minutes: 30, status: .UNDONE)
+                cell.task = newTask
             } else {
                 cell.isHidden = true
             }
@@ -51,7 +51,7 @@ extension ViewController {
             if indexPath.row >= emptyRows && indexPath.row <= emptyRows + tasks.count - 1 {
                 cell.task = tasks[indexPath.row - emptyRows]
             } else if indexPath.row == tasks.count + emptyRows {
-                cell.task = Task(id: indexPath.row, title: "", hours: 1, minutes: 30, status: .UNDONE)
+                cell.task = newTask
             } else {
                 cell.isHidden = true
             }
@@ -59,7 +59,7 @@ extension ViewController {
             if indexPath.row < tasks.count {
                 cell.task = tasks[indexPath.row]
             } else if indexPath.row == tasks.count {
-                cell.task = Task(id: indexPath.row, title: "", hours: 1, minutes: 30, status: .UNDONE)
+                cell.task = newTask
             } else {
                 cell.isHidden = true
             }

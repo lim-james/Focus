@@ -39,6 +39,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var bottomTableView: UITableView!
     
     var current: Task!
+    var newTask: Task!
     @IBOutlet weak var pickerContainer: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
     
@@ -57,7 +58,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tasks.append(Task(id: 0, title: "First task", hours: 1, minutes: 30, status: .UNDONE))
         
         setupTableView(topTableView)
         setupTableView(centreTableView)
@@ -70,6 +70,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         centreTableView.alpha = 1
         centreTableView.superview?.bringSubview(toFront: centreTableView)
+        
+        newTask = Task(id: tasks.count, title: "", hours: 1, minutes: 30, status: .UNDONE)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -94,6 +96,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if mainButton.titleLabel?.text == "New" {
             let indexPath = IndexPath(item: tasks.count, section: 0)
             centreTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            if let cell = centreTableView.cellForRow(at: indexPath) as? MainCell {
+                cell.titleView.becomeFirstResponder()
+            }
         } else if mainButton.titleLabel?.text == "Done" {
             closeTimePicker()
         }
