@@ -13,5 +13,6 @@ extension ViewController: UpdateDelegate {
         topTableView.reloadData()
         centreTableView.reloadData()
         bottomTableView.reloadData()
+        editTableView.reloadData()
     }
 }

@@ -25,7 +25,7 @@ extension ViewController: TimeDelegate {
         bottomTableView.isScrollEnabled = false
         
         bottomMultiplier = bottomMultiplier.setMultiplier(1)
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: 0.25) {
             self.view.layoutIfNeeded()
             self.bottomTableView.alpha = 0
             self.pickerContainer.alpha = 1
@@ -50,7 +50,7 @@ extension ViewController: TimeDelegate {
         
         mainButton.setTitle(previousMessage, for: .normal)
         bottomMultiplier = bottomMultiplier.setMultiplier(CGFloat(emptyRows + 1))
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: 0.25) {
             self.view.layoutIfNeeded()
             self.bottomTableView.alpha = 0.25
             self.pickerContainer.alpha = 0

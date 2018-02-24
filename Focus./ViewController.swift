@@ -31,10 +31,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var topMultiplier: NSLayoutConstraint!
     @IBOutlet weak var bottomMultiplier: NSLayoutConstraint!
+    @IBOutlet weak var editMultiplier: NSLayoutConstraint!
     
     @IBOutlet weak var topTableView: UITableView!
     @IBOutlet weak var centreTableView: UITableView!
     @IBOutlet weak var bottomTableView: UITableView!
+    @IBOutlet weak var editTableView: UITableView!
     
     var current: Task!
     var newTask: Task!
@@ -45,6 +47,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var previousMessage = "New"
     @IBOutlet weak var mainButton: UIButton!
+    @IBOutlet weak var containerBottom: NSLayoutConstraint!
+    @IBOutlet weak var containerHeight: NSLayoutConstraint!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -56,6 +60,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setupTableView(topTableView)
         setupTableView(centreTableView)
         setupTableView(bottomTableView)
+        setupTableView(editTableView)
         
         pickerContainer.alpha = 0
         
@@ -63,7 +68,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         pickerView.dataSource = self
         
         centreTableView.alpha = 1
-        centreTableView.superview?.bringSubview(toFront: centreTableView)
+        
+        editTableView.alpha = 0
+        editTableView.isHidden = true
         
         newTask = Task(id: tasks.count, title: "", hours: 1, minutes: 30, status: .UNDONE)
     }
@@ -75,6 +82,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         emptyRows = Int((view.frame.height/rowHeight)/2)
         topMultiplier = topMultiplier.setMultiplier(CGFloat(emptyRows + 1))
         bottomMultiplier = bottomMultiplier.setMultiplier(CGFloat(emptyRows + 1))
+        editMultiplier = editMultiplier.setMultiplier(CGFloat(2 * emptyRows + 1))
         reloadTableViews()
     }
     
@@ -92,6 +100,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         } else if mainButton.titleLabel?.text == "Done" {
             closeTimePicker()
+        }
+    }
+    @IBAction func editAction(_ sender: Any) {
+        if editTableView.isHidden {
+            editTableView.isHidden = false
+            containerBottom.constant = containerHeight.constant
+            UIView.animate(withDuration: 0.25) {
+                self.editTableView.alpha = 1
+                self.view.layoutIfNeeded()
+            }
+        } else {
+            containerBottom.constant = 0
+            UIView.animate(withDuration: 0.25, animations: {
+                self.editTableView.alpha = 0
+                self.view.layoutIfNeeded()
+            }) { (Bool) in
+                self.editTableView.isHidden = true
+            }
         }
     }
 }

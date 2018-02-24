@@ -25,8 +25,10 @@ extension ViewController {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView != centreTableView {
+        if tableView == bottomTableView || tableView == topTableView {
             return tasks.count + emptyRows + 1
+        } else if tableView == editTableView {
+            return tasks.count + 2 * emptyRows
         }
         return tasks.count + 1
     }
@@ -63,6 +65,12 @@ extension ViewController {
             } else {
                 cell.isHidden = true
             }
+        } else if tableView == editTableView {
+            if indexPath.row >= emptyRows && indexPath.row < tasks.count + emptyRows {
+                cell.task = tasks[indexPath.row - emptyRows]
+            } else {
+                cell.isHidden = true
+            }
         }
         return cell
     }
@@ -73,6 +81,8 @@ extension ViewController {
             centreTableView.scrollToRow(at: IndexPath(row: indexPath.row - emptyRows, section: indexPath.section), at: .top, animated: true)
         } else if tableView == bottomTableView {
             centreTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        } else if tableView == editTableView {
+            editTableView.scrollToRow(at: indexPath, at: .middle, animated: true)
         } else {
             view.endEditing(true)
         }

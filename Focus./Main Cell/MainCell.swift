@@ -76,9 +76,9 @@ class MainCell: UITableViewCell, UITextViewDelegate {
         if textView.textColor == .lightText {
             textView.textColor = .white
             textView.text = ""
-            DispatchQueue.main.async {
-                self.timeDelegate.closeTimePicker()
-            }
+        }
+        DispatchQueue.main.async {
+            self.timeDelegate.closeTimePicker()
         }
     }
     
