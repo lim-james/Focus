@@ -10,6 +10,7 @@ import UIKit
 
 extension ViewController {
     func startTimer() {
+        print(centreTableView.visibleCells.count)
         if let cell = centreTableView.visibleCells[0] as? MainCell {
             current = cell.task
         }
@@ -25,6 +26,9 @@ extension ViewController {
         
         if seconds == 1 {
             seconds = 0
+            if current.status == .DONE {
+                current.spent = 0
+            }
             current.status = .DOING
             current.spent += 1
             print(current.spent)

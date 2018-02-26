@@ -18,6 +18,7 @@ extension ViewController: TimeDelegate {
             previousMessage =   (mainButton.titleLabel?.text)!
         }
         mainButton.setTitle("Done", for: .normal)
+        
         current = task
         
         topTableView.isScrollEnabled = false

@@ -108,6 +108,8 @@ extension ViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         closeTimePicker()
+        let cell = tableView.cellForRow(at: indexPath) as! MainCell
+//        current = cell.task
         if tableView == topTableView {
             centreTableView.scrollToRow(at: IndexPath(row: indexPath.row - emptyRows, section: indexPath.section), at: .top, animated: true)
         } else if tableView == bottomTableView {

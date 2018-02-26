@@ -173,7 +173,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @objc func rotated() {
-        if UIDevice.current.orientation == .faceDown && UIDevice.current.proximityState && editTableView.isHidden == true && !tasks.isEmpty {
+        if UIDevice.current.orientation == .faceDown && UIDevice.current.proximityState &&
+            editTableView.isHidden == true && !tasks.isEmpty {
+            for t in tasks {
+                print()
+            }
             dimButtons()
             brightness = UIScreen.main.brightness
             UIScreen.main.brightness = 0
