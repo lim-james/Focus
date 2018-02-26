@@ -46,8 +46,11 @@ class Task {
     }
     
     var getTimeLeft: String {
-        let h = hours - Int(CGFloat(spent/60))
-        let m = minutes - spent + h * 60
+        print(CGFloat(spent/60))
+        let total = hours * 60 + minutes
+        let left = total - spent
+        let h = Int(left/60)
+        let m = left - h*60
         return formatTime(h, m)
     }
     
