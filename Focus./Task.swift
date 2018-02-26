@@ -16,6 +16,7 @@ enum Status {
 }
 
 class Task {
+    var id: Int
     var title: String
     var hours: Int
     var minutes: Int
@@ -23,6 +24,7 @@ class Task {
     var status: Status
     
     init() {
+        id = 0
         title = ""
         hours = 0
         minutes = 0
@@ -30,7 +32,8 @@ class Task {
         status = .UNDONE
     }
     
-    init(title: String, hours: Int, minutes: Int, status: Status) {
+    init(id: Int, title: String, hours: Int, minutes: Int, status: Status) {
+        self.id = id
         self.title = title
         self.hours = hours
         self.minutes = minutes
@@ -39,9 +42,23 @@ class Task {
     }
     
     var getFormattedDuration: String {
-        let h = hours == 0 ? "" : "\(hours)h "
-        let m = minutes == 0 ? "" : "\(minutes)m"
-        return "\(h)\(m)"
+        return formatTime(hours, minutes)
+    }
+    
+    var getTimeLeft: String {
+        let h = hours - Int(CGFloat(spent/60))
+        let m = minutes - spent + h * 60
+        return formatTime(h, m)
+    }
+    
+    private func formatTime(_ h: Int, _ m: Int) -> String {
+        let hStr = h == 0 ? "" : "\(h)h "
+        let mStr = m == 0 ? "" : "\(m)m"
+        return "\(hStr)\(mStr)"
+    }
+    
+    var isDone: Bool {
+        return hours * 60 + minutes == spent
     }
     
     func getStatus() -> String {
@@ -49,7 +66,7 @@ class Task {
         case .DONE:
             return "Done"
         case .DOING:
-            return "\(getFormattedDuration) left"
+            return "\(getTimeLeft) left"
         case .UNDONE:
             return "\(getFormattedDuration)"
         case .SKIPPED:

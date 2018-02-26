@@ -47,15 +47,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var previousMessage = "New"
     @IBOutlet weak var mainButton: UIButton!
+    @IBOutlet weak var mainButtonContainer: UIView!
     @IBOutlet weak var containerBottom: NSLayoutConstraint!
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
     
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var editButtonContainer: UIView!
     @IBOutlet weak var topLine: UIView!
     @IBOutlet weak var bottomLine: UIView!
     
     @IBOutlet weak var topCenter: NSLayoutConstraint!
     @IBOutlet weak var bottomCenter: NSLayoutConstraint!
+    
+    var brightness: CGFloat = 0
+    
+    var seconds = 0
+    var timer = Timer()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -87,7 +94,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         topLine.backgroundColor = buttonGradient[0]
         bottomLine.backgroundColor = buttonGradient[0]
         
-        newTask = Task(title: "", hours: 1, minutes: 30, status: .UNDONE)
+        newTask = Task(id: tasks.count, title: "", hours: 1, minutes: 30, status: .UNDONE)
+        
+        brightness = UIScreen.main.brightness
+        UIDevice.current.isProximityMonitoringEnabled = true
+        NotificationCenter.default.addObserver(self, selector: #selector(self.brightnessChanged), name: NSNotification.Name.UIScreenBrightnessDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.rotated), name: NSNotification.Name.UIDeviceProximityStateDidChange, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -108,6 +121,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func mainAction(_ sender: Any) {
+        focusButtons()
         if mainButton.titleLabel?.text == "New" {
             let indexPath = IndexPath(item: tasks.count, section: 0)
             centreTableView.scrollToRow(at: indexPath, at: .top, animated: true)
@@ -120,6 +134,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func editAction(_ sender: Any) {
+        focusButtons()
         if editTableView.isHidden {
             view.endEditing(true)
             reloadTableViews()
@@ -149,6 +164,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.view.layoutIfNeeded()
             }) { (Bool) in
                 self.editTableView.isHidden = true
+            }
+        }
+    }
+    
+    @objc func brightnessChanged() {
+        brightness = UIScreen.main.brightness
+    }
+    
+    @objc func rotated() {
+        if UIDevice.current.orientation == .faceDown && UIDevice.current.proximityState && editTableView.isHidden == true && !tasks.isEmpty {
+            dimButtons()
+            brightness = UIScreen.main.brightness
+            UIScreen.main.brightness = 0
+            startTimer()
+        } else {
+            UIScreen.main.brightness = brightness
+            stopTimer()
+            reloadTableViews()
+            if current != nil {
+                centreTableView.scrollToRow(at: IndexPath(row: current.id, section: 0), at: .top, animated: true)
             }
         }
     }

@@ -22,4 +22,18 @@ extension ViewController {
         mainButton.layer.cornerRadius = mainButton.frame.height/5
         mainButton.clipsToBounds = true
     }
+    
+    func focusButtons() {
+        UIView.animate(withDuration: 0.25) {
+            self.mainButtonContainer.alpha = 1
+            self.editButtonContainer.alpha = 1
+        }
+    }
+    
+    func dimButtons() {
+        UIView.animate(withDuration: 0.25) {
+            self.mainButtonContainer.alpha = 0.1
+            self.editButtonContainer.alpha = 0.1
+        }
+    }
 }
