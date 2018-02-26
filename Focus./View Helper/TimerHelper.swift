@@ -7,13 +7,10 @@
 //
 
 import UIKit
+import AVFoundation
 
 extension ViewController {
     func startTimer() {
-        print(centreTableView.visibleCells.count)
-        if let cell = centreTableView.visibleCells[0] as? MainCell {
-            current = cell.task
-        }
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timerAction), userInfo: nil, repeats: true)
     }
     
@@ -24,7 +21,7 @@ extension ViewController {
     @objc func timerAction() {
         seconds += 1
         
-        if seconds == 1 {
+        if seconds == 60 {
             seconds = 0
             if current.status == .DONE {
                 current.spent = 0
@@ -33,9 +30,8 @@ extension ViewController {
             current.spent += 1
             print(current.spent)
             if current.isDone {
-                // vibrate device
                 current.status = .DONE
-                if current.id < tasks.count {
+                if current.id < tasks.count - 1 {
                     current = tasks[current.id + 1]
                 } else {
                     stopTimer()

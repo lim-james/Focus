@@ -17,6 +17,7 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     var taskDelegate: TaskDelegate!
     var timeDelegate: TimeDelegate!
     var updateDelegate: UpdateDelegate!
+    var buttonDelegate: ButtonDelegate!
     
     var task: Task! {
         didSet {
@@ -45,6 +46,7 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     @IBAction func selectTimeAction(_ sender: Any) {
         titleView.resignFirstResponder()
         timeDelegate.openTimePicker(with: task)
+        buttonDelegate.focusButtons()
     }
     
     func checkTask(_ content: String) {
@@ -66,7 +68,8 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             checkTask(textView.text)
-            textView.resignFirstResponder()
+            
+//            textView.resignFirstResponder()
             return false
         }
         return true

@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension ViewController {
+extension ViewController: ButtonDelegate {
     func setupMainButton() {
         // create gradient background
         let gradientLayer = CAGradientLayer()

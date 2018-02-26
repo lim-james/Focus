@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol ButtonDelegate {
+    func focusButtons()
+    func dimButtons()
+}
+
 protocol UpdateDelegate {
     func reloadTableViews()
 }
@@ -123,11 +128,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func mainAction(_ sender: Any) {
         focusButtons()
         if mainButton.titleLabel?.text == "New" {
-            let indexPath = IndexPath(item: tasks.count, section: 0)
-            centreTableView.scrollToRow(at: indexPath, at: .top, animated: true)
-            if let cell = centreTableView.cellForRow(at: indexPath) as? MainCell {
-                cell.titleView.becomeFirstResponder()
-            }
+            createNewTask()
         } else if mainButton.titleLabel?.text == "Done" {
             closeTimePicker()
         }
@@ -173,14 +174,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @objc func rotated() {
-        if UIDevice.current.orientation == .faceDown && UIDevice.current.proximityState &&
-            editTableView.isHidden == true && !tasks.isEmpty {
-            for t in tasks {
-                print()
-            }
+        if UIDevice.current.orientation == .faceDown && UIDevice.current.proximityState && editTableView.isHidden == true && !tasks.isEmpty {
             dimButtons()
             brightness = UIScreen.main.brightness
             UIScreen.main.brightness = 0
+            if current == nil {
+                current = tasks.first
+            }
             startTimer()
         } else {
             UIScreen.main.brightness = brightness

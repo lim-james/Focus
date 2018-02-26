@@ -24,7 +24,10 @@ extension ViewController {
         tableView.addGestureRecognizer(tap)
     }
     
-    @objc func hideKeyboard() { view.endEditing(true) }
+    @objc func hideKeyboard() {
+        view.endEditing(true)
+        closeTimePicker()
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return rowHeight
@@ -45,6 +48,7 @@ extension ViewController {
         cell.taskDelegate = self
         cell.timeDelegate = self
         cell.updateDelegate = self
+        cell.buttonDelegate = self
         cell.backgroundColor = view.backgroundColor
         if tableView == centreTableView {
             cell.interactionView.isHidden = true
@@ -89,6 +93,10 @@ extension ViewController {
         }
     }
     
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return tableView.isEditing ? .delete : .none
+    }
+    
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let movedObject = tasks[sourceIndexPath.row - emptyRows]
         tasks.remove(at: sourceIndexPath.row - emptyRows)
@@ -108,8 +116,6 @@ extension ViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         closeTimePicker()
-        let cell = tableView.cellForRow(at: indexPath) as! MainCell
-//        current = cell.task
         if tableView == topTableView {
             centreTableView.scrollToRow(at: IndexPath(row: indexPath.row - emptyRows, section: indexPath.section), at: .top, animated: true)
         } else if tableView == bottomTableView {

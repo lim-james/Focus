@@ -9,11 +9,26 @@
 import UIKit
 
 extension ViewController: TaskDelegate {
+    func updateCurrent() {
+        if let cell = centreTableView.visibleCells[0] as? MainCell {
+            current = cell.task
+        }
+    }
+    
+    func createNewTask() {
+        let indexPath = IndexPath(item: tasks.count, section: 0)
+        centreTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        if let cell = centreTableView.cellForRow(at: indexPath) as? MainCell {
+            cell.titleView.becomeFirstResponder()
+        }
+    }
+    
     // delegate methods
     
     func addTask(_ task: Task) {
         tasks.append(task)
         newTask = Task(id: tasks.count, title: "", hours: 1, minutes: 30, status: .UNDONE)
         reloadTableViews()
+//        createNewTask()
     }
 }
