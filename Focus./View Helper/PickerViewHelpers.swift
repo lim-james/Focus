@@ -17,7 +17,7 @@ extension ViewController {
         switch component {
         case 0: return 9
         case 1: return 1
-        case 2: return 61
+        case 2: return 60
         case 3: return 1
         default: return 0
         }

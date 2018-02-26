@@ -18,7 +18,13 @@ extension ViewController {
         tableView.estimatedRowHeight = rowHeight
         tableView.rowHeight = rowHeight
         tableView.register(UINib(nibName: "MainCellView", bundle: nil), forCellReuseIdentifier: "Cell")
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
+        tap.cancelsTouchesInView = false
+        tableView.addGestureRecognizer(tap)
     }
+    
+    @objc func hideKeyboard() { view.endEditing(true) }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return rowHeight
@@ -39,6 +45,7 @@ extension ViewController {
         cell.taskDelegate = self
         cell.timeDelegate = self
         cell.updateDelegate = self
+        cell.backgroundColor = view.backgroundColor
         if tableView == centreTableView {
             cell.interactionView.isHidden = true
             cell.backgroundColor = .black
@@ -73,6 +80,30 @@ extension ViewController {
             }
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tasks.remove(at: indexPath.row - emptyRows)
+            editTableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedObject = tasks[sourceIndexPath.row - emptyRows]
+        tasks.remove(at: sourceIndexPath.row - emptyRows)
+        tasks.insert(movedObject, at: destinationIndexPath.row  - emptyRows)
+    }
+    
+    func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        if proposedDestinationIndexPath.row < emptyRows || proposedDestinationIndexPath.row >= tasks.count + emptyRows {
+            return sourceIndexPath
+        }
+        return proposedDestinationIndexPath
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.row >= emptyRows && indexPath.row < tasks.count + emptyRows
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

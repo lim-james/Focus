@@ -50,8 +50,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var containerBottom: NSLayoutConstraint!
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var topLine: UIView!
+    @IBOutlet weak var bottomLine: UIView!
+    
+    @IBOutlet weak var topCenter: NSLayoutConstraint!
+    @IBOutlet weak var bottomCenter: NSLayoutConstraint!
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return false
     }
     
     override func viewDidLoad() {
@@ -71,18 +82,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         editTableView.alpha = 0
         editTableView.isHidden = true
+        editTableView.isEditing = true
         
-        newTask = Task(id: tasks.count, title: "", hours: 1, minutes: 30, status: .UNDONE)
+        topLine.backgroundColor = buttonGradient[0]
+        bottomLine.backgroundColor = buttonGradient[0]
+        
+        newTask = Task(title: "", hours: 1, minutes: 30, status: .UNDONE)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupMainButton()
         
-        emptyRows = Int((view.frame.height/rowHeight)/2)
+        emptyRows = Int((view.frame.height/rowHeight)/2) - 1
         topMultiplier = topMultiplier.setMultiplier(CGFloat(emptyRows + 1))
         bottomMultiplier = bottomMultiplier.setMultiplier(CGFloat(emptyRows + 1))
         editMultiplier = editMultiplier.setMultiplier(CGFloat(2 * emptyRows + 1))
+        
         reloadTableViews()
     }
     
@@ -102,18 +118,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             closeTimePicker()
         }
     }
+    
     @IBAction func editAction(_ sender: Any) {
         if editTableView.isHidden {
+            view.endEditing(true)
+            reloadTableViews()
             editTableView.isHidden = false
             containerBottom.constant = containerHeight.constant
+            topCenter.constant = 0
+            bottomCenter.constant = 0
             UIView.animate(withDuration: 0.25) {
                 self.editTableView.alpha = 1
+                self.topLine.backgroundColor = .red
+                self.topLine.transform = CGAffineTransform(rotationAngle: .pi/4)
+                self.bottomLine.backgroundColor = .red
+                self.bottomLine.transform = CGAffineTransform(rotationAngle: -.pi/4)
                 self.view.layoutIfNeeded()
             }
         } else {
+            reloadTableViews()
+            topCenter.constant = -4
+            bottomCenter.constant = 4
             containerBottom.constant = 0
             UIView.animate(withDuration: 0.25, animations: {
                 self.editTableView.alpha = 0
+                self.topLine.backgroundColor = self.buttonGradient[0]
+                self.topLine.transform = CGAffineTransform(rotationAngle: 0)
+                self.bottomLine.backgroundColor = self.buttonGradient[0]
+                self.bottomLine.transform = CGAffineTransform(rotationAngle: 0)
                 self.view.layoutIfNeeded()
             }) { (Bool) in
                 self.editTableView.isHidden = true

@@ -58,11 +58,14 @@ Like this</string>
                 </subviews>
                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
+                    <constraint firstItem="Kcc-9M-3og" firstAttribute="width" secondItem="Yoj-gC-8iS" secondAttribute="width" id="9h6-V8-CKl"/>
                     <constraint firstItem="XR4-f5-SgV" firstAttribute="leading" secondItem="jXf-GT-L7G" secondAttribute="leading" id="BEJ-x6-yNU"/>
                     <constraint firstItem="XR4-f5-SgV" firstAttribute="top" secondItem="Kcc-9M-3og" secondAttribute="bottom" id="I0r-O5-kHD"/>
                     <constraint firstItem="5n5-Vz-Kp8" firstAttribute="top" secondItem="jXf-GT-L7G" secondAttribute="top" id="IpG-J2-eW3"/>
                     <constraint firstItem="Yoj-gC-8iS" firstAttribute="leading" secondItem="jXf-GT-L7G" secondAttribute="leading" id="JCk-oY-86a"/>
                     <constraint firstAttribute="trailing" secondItem="Kcc-9M-3og" secondAttribute="trailing" id="KNt-KB-2Uc"/>
+                    <constraint firstItem="Yoj-gC-8iS" firstAttribute="centerX" secondItem="jXf-GT-L7G" secondAttribute="centerX" id="LNH-h4-gkB"/>
+                    <constraint firstItem="Kcc-9M-3og" firstAttribute="centerX" secondItem="jXf-GT-L7G" secondAttribute="centerX" id="OKH-1p-RNf"/>
                     <constraint firstAttribute="bottom" secondItem="XR4-f5-SgV" secondAttribute="bottom" id="OUP-zH-LEJ"/>
                     <constraint firstAttribute="trailing" secondItem="Yoj-gC-8iS" secondAttribute="trailing" id="fSe-U6-fcV"/>
                     <constraint firstAttribute="trailing" secondItem="5n5-Vz-Kp8" secondAttribute="trailing" id="frc-wN-y5d"/>

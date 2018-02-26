@@ -16,17 +16,25 @@ enum Status {
 }
 
 class Task {
-    var id: Int
     var title: String
     var hours: Int
     var minutes: Int
+    var spent: Int
     var status: Status
     
-    init(id: Int, title: String, hours: Int, minutes: Int, status: Status) {
-        self.id = id
+    init() {
+        title = ""
+        hours = 0
+        minutes = 0
+        spent = 0
+        status = .UNDONE
+    }
+    
+    init(title: String, hours: Int, minutes: Int, status: Status) {
         self.title = title
         self.hours = hours
         self.minutes = minutes
+        self.spent = 0
         self.status = status
     }
     

@@ -43,8 +43,8 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     }
     
     @IBAction func selectTimeAction(_ sender: Any) {
-        timeDelegate.openTimePicker(with: task)
         titleView.resignFirstResponder()
+        timeDelegate.openTimePicker(with: task)
     }
     
     func checkTask(_ content: String) {
@@ -77,6 +77,7 @@ class MainCell: UITableViewCell, UITextViewDelegate {
             textView.textColor = .white
             textView.text = ""
         }
+        
         DispatchQueue.main.async {
             self.timeDelegate.closeTimePicker()
         }

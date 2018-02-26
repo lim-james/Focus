@@ -11,7 +11,7 @@ import UIKit
 extension ViewController: TaskDelegate {
     func addTask(_ task: Task) {
         tasks.append(task)
-        newTask = Task(id: tasks.count, title: "", hours: 1, minutes: 30, status: .UNDONE)
+        newTask = Task(title: "", hours: 1, minutes: 30, status: .UNDONE)
         reloadTableViews()
     }
 }
