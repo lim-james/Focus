@@ -99,7 +99,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         topLine.backgroundColor = buttonGradient[0]
         bottomLine.backgroundColor = buttonGradient[0]
         
-        newTask = Task(id: tasks.count, title: "", hours: 1, minutes: 30, status: .UNDONE)
+        newTask = Task(id: tasks.count - 1, title: "", hours: 1, minutes: 30, status: .UNDONE)
         
         brightness = UIScreen.main.brightness
         UIDevice.current.isProximityMonitoringEnabled = true
@@ -183,9 +183,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             if current.title.isEmpty {
                 return
-            }
-            for i in tasks {
-                print(i.id)
             }
             startTimer()
         } else {
