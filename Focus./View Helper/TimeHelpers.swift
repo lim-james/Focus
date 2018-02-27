@@ -53,7 +53,7 @@ extension ViewController: TimeDelegate {
         bottomMultiplier = bottomMultiplier.setMultiplier(CGFloat(emptyRows + 1))
         UIView.animate(withDuration: 0.25) {
             self.view.layoutIfNeeded()
-            self.bottomTableView.alpha = 0.25
+            self.bottomTableView.alpha = 0.1
             self.pickerContainer.alpha = 0
         }
     }

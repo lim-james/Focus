@@ -74,7 +74,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="92" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lge-cm-Fmi">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="92" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lge-cm-Fmi">
                                 <rect key="frame" x="16" y="287.5" width="343" height="92"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -246,6 +246,7 @@
                         <outlet property="bottomLine" destination="yWZ-5U-Jq5" id="vKc-lh-a2w"/>
                         <outlet property="bottomMultiplier" destination="KJe-ei-Vg9" id="cxn-oy-4CA"/>
                         <outlet property="bottomTableView" destination="D0v-1f-w1v" id="vM2-WP-zRo"/>
+                        <outlet property="centreHeight" destination="bSl-4C-dNt" id="sCL-Cg-vPd"/>
                         <outlet property="centreTableView" destination="Lge-cm-Fmi" id="zQC-Y8-hWB"/>
                         <outlet property="containerBottom" destination="ud3-0z-eE2" id="EAF-wA-AoB"/>
                         <outlet property="containerHeight" destination="5O4-uX-Ahq" id="jY4-kd-vh5"/>

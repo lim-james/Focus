@@ -33,8 +33,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var tasks: [Task] = []
     
     var emptyRows: Int = 0
-    var rowHeight: CGFloat = 92
+    var rowHeight: CGFloat = 184
     
+    @IBOutlet weak var centreHeight: NSLayoutConstraint!
     @IBOutlet weak var topMultiplier: NSLayoutConstraint!
     @IBOutlet weak var bottomMultiplier: NSLayoutConstraint!
     @IBOutlet weak var editMultiplier: NSLayoutConstraint!
@@ -112,6 +113,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupMainButton()
+        
+        centreHeight.constant = rowHeight
         
         emptyRows = Int((view.frame.height/rowHeight)/2) - 1
         topMultiplier = topMultiplier.setMultiplier(CGFloat(emptyRows + 1))

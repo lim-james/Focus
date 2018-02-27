@@ -28,9 +28,10 @@ extension ViewController {
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let y = targetContentOffset.pointee.y + scrollView.contentInset.top + rowHeight/2
+        let y = targetContentOffset.pointee.y + rowHeight/2
         let cellIndex  = floor(y/rowHeight)
-        targetContentOffset.pointee.y = cellIndex * rowHeight - scrollView.contentInset.top
+        targetContentOffset.pointee.y = cellIndex * rowHeight
+
         updateCurrent()
         syncScrolls(scrollView)
     }
@@ -38,7 +39,6 @@ extension ViewController {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         syncScrolls(scrollView)
         updateCurrent()
-        clip(scrollView)
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
@@ -49,11 +49,6 @@ extension ViewController {
     
     func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
         syncScrolls(scrollView)
-    }
-    
-    func clip(_ scrollView: UIScrollView) {
-        let cellIndex = floor(scrollView.contentOffset.y/rowHeight)
-        scrollView.contentOffset.y = cellIndex * rowHeight
     }
     
     func checkAddRow() {

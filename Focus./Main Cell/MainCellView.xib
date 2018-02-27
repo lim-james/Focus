@@ -17,42 +17,42 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="92" id="dgt-Ky-4Aa" customClass="MainCell" customModule="Focus_" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="343" height="92"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="184" id="dgt-Ky-4Aa" customClass="MainCell" customModule="Focus_" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="343" height="184"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dgt-Ky-4Aa" id="jXf-GT-L7G">
-                <rect key="frame" x="0.0" y="0.0" width="343" height="91.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="343" height="183.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yoj-gC-8iS">
-                        <rect key="frame" x="0.0" y="50" width="343" height="22"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yoj-gC-8iS">
+                        <rect key="frame" x="0.0" y="100" width="343" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="22" id="rkF-XX-TZx"/>
+                            <constraint firstAttribute="height" constant="44" id="rkF-XX-TZx"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="16"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="32"/>
                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Kcc-9M-3og">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kcc-9M-3og">
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="100"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="Pm8-QS-crh"/>
+                            <constraint firstAttribute="height" constant="100" id="Pm8-QS-crh"/>
                         </constraints>
                         <string key="text">Supports two lines
 Like this</string>
                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="36"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert" returnKeyType="next"/>
                     </textView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XR4-f5-SgV">
-                        <rect key="frame" x="0.0" y="50" width="343" height="42"/>
+                        <rect key="frame" x="0.0" y="100" width="343" height="30"/>
                         <connections>
                             <action selector="selectTimeAction:" destination="dgt-Ky-4Aa" eventType="touchUpInside" id="nbb-3k-z4f"/>
                         </connections>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5n5-Vz-Kp8">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="92"/>
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </subviews>
