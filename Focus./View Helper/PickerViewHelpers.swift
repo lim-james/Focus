@@ -23,17 +23,25 @@ extension ViewController {
         }
     }
     
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 45
+    }
+    
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        return 30
+        if component % 2 != 0 {
+            return 25
+        }
+        return 45
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let label = UILabel()
-        label.font = UIFont(name: "AvenirNext-DemiBold", size: label.font.pointSize)
+        label.font = UIFont(name: "AvenirNext-Bold", size: label.font.pointSize * 2)
         label.textColor = .white
         label.text = "\(row)"
         label.textAlignment = .right
         if component % 2 != 0 {
+            label.font = UIFont(name: "AvenirNext", size: label.font.pointSize * 2)
             label.textAlignment = .left
             label.text = component == 1 ? "h" : "m"
         }

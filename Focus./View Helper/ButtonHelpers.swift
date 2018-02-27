@@ -32,8 +32,8 @@ extension ViewController: ButtonDelegate {
     
     func dimButtons() {
         UIView.animate(withDuration: 0.25) {
-            self.mainButtonContainer.alpha = 0.1
-            self.editButtonContainer.alpha = 0.1
+            self.mainButtonContainer.alpha = 0.2
+            self.editButtonContainer.alpha = 0.2
         }
     }
 }

@@ -13,7 +13,7 @@ extension ViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.clipsToBounds = true
-        tableView.alpha = 0.1
+        tableView.alpha = 0.2
         tableView.backgroundColor  = .black
         tableView.estimatedRowHeight = rowHeight
         tableView.rowHeight = rowHeight
@@ -25,8 +25,8 @@ extension ViewController {
     }
     
     @objc func hideKeyboard() {
-        view.endEditing(true)
         closeTimePicker()
+        view.endEditing(true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

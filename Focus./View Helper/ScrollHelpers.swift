@@ -10,7 +10,39 @@ import UIKit
 
 extension ViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        for cell in topTableView.visibleCells {
+            check(tableView: topTableView, cell: cell)
+        }
+        
+        for cell in centreTableView.visibleCells {
+            check(tableView: centreTableView, cell: cell)
+        }
+        
+        for cell in bottomTableView.visibleCells {
+            check(tableView: bottomTableView, cell: cell)
+        }
         syncScrolls(scrollView)
+    }
+    
+    func check(tableView: UITableView, cell: UITableViewCell) {
+        let indexPath = tableView.indexPath(for: cell)
+        let rectOfCell = tableView.rectForRow(at: indexPath!)
+        let rectOfCellInSuperview = tableView.convert(rectOfCell, to: tableView.superview)
+        let extra = view.frame.height * 0.5
+        let center = (view.frame.height + extra - rowHeight)/2
+        let y = rectOfCellInSuperview.minY + extra/2
+        var scale = center/y
+        if scale > 1 {
+            scale = 1/(scale)
+        }
+        if scale < 0 {
+            scale = 0
+        }
+        cell.contentView.transform = CGAffineTransform(scaleX: scale, y: scale)
+    }
+    
+    func sq(_ x: CGFloat) -> CGFloat {
+        return x*x
     }
     
     func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {

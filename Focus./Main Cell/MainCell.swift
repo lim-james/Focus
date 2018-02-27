@@ -14,6 +14,8 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var interactionView: UIView!
     
+    @IBOutlet weak var titleHeight: NSLayoutConstraint!
+    
     var taskDelegate: TaskDelegate!
     var timeDelegate: TimeDelegate!
     var updateDelegate: UpdateDelegate!
@@ -30,6 +32,7 @@ class MainCell: UITableViewCell, UITextViewDelegate {
                 titleView.text = task.title
                 titleView.returnKeyType = .done
             }
+            updateHeight()
             statusLabel.text = task.getStatus()
         }
     }
@@ -41,6 +44,7 @@ class MainCell: UITableViewCell, UITextViewDelegate {
         titleView.text = ""
         titleView.textContainer.maximumNumberOfLines = 2
         titleView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        titleView.isScrollEnabled = false
         titleView.tintColor = .primary
         statusLabel.text = ""
     }
@@ -49,6 +53,17 @@ class MainCell: UITableViewCell, UITextViewDelegate {
         titleView.resignFirstResponder()
         timeDelegate.openTimePicker(with: task)
         buttonDelegate.focusButtons()
+    }
+    
+    func updateHeight() {
+        switch titleView.numberOfLines() {
+        case 1:
+            titleHeight.constant = 50
+        case 2:
+            titleHeight.constant = 100
+            titleView.contentOffset.y = 0
+        default: break
+        }
     }
     
     func updateTitle(to content: String) {
@@ -60,10 +75,11 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        if textView.numberOfLines() > 2 {
-            textView.removeTextUntilSatisfying()
-            textView.resignFirstResponder()
+        if titleView.numberOfLines() > 2 {
+            titleView.removeTextUntilSatisfying()
+            titleView.resignFirstResponder()
         }
+        updateHeight()
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {

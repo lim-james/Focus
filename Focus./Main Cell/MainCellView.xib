@@ -24,63 +24,80 @@
                 <rect key="frame" x="0.0" y="0.0" width="343" height="183.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yoj-gC-8iS">
-                        <rect key="frame" x="0.0" y="100" width="343" height="44"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="44" id="rkF-XX-TZx"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="32"/>
-                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kcc-9M-3og">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="100"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYd-s3-bcU">
+                        <rect key="frame" x="0.0" y="20" width="343" height="144"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yoj-gC-8iS">
+                                <rect key="frame" x="0.0" y="100" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="rkF-XX-TZx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="32"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Kcc-9M-3og">
+                                <rect key="frame" x="0.0" y="0.0" width="343" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Pm8-QS-crh"/>
+                                </constraints>
+                                <string key="text">Supports two lines
+Like this</string>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="36"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert" returnKeyType="next"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XR4-f5-SgV">
+                                <rect key="frame" x="0.0" y="100" width="343" height="44"/>
+                                <connections>
+                                    <action selector="selectTimeAction:" destination="dgt-Ky-4Aa" eventType="touchUpInside" id="nbb-3k-z4f"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="100" id="Pm8-QS-crh"/>
+                            <constraint firstItem="XR4-f5-SgV" firstAttribute="height" secondItem="Yoj-gC-8iS" secondAttribute="height" id="0g3-Zc-Oob"/>
+                            <constraint firstAttribute="trailing" secondItem="Yoj-gC-8iS" secondAttribute="trailing" id="3P2-DL-3eh"/>
+                            <constraint firstAttribute="trailing" secondItem="Yoj-gC-8iS" secondAttribute="trailing" id="3P4-Q2-0tg"/>
+                            <constraint firstItem="Kcc-9M-3og" firstAttribute="centerX" secondItem="MYd-s3-bcU" secondAttribute="centerX" id="4ix-64-O7M"/>
+                            <constraint firstAttribute="bottom" secondItem="XR4-f5-SgV" secondAttribute="bottom" id="9wc-0x-GR0"/>
+                            <constraint firstItem="Kcc-9M-3og" firstAttribute="top" secondItem="MYd-s3-bcU" secondAttribute="top" id="EJK-Ku-ndJ"/>
+                            <constraint firstItem="Kcc-9M-3og" firstAttribute="leading" secondItem="MYd-s3-bcU" secondAttribute="leading" id="Mhq-fl-h7y"/>
+                            <constraint firstAttribute="trailing" secondItem="Kcc-9M-3og" secondAttribute="trailing" id="S9A-nP-Nd1"/>
+                            <constraint firstItem="Yoj-gC-8iS" firstAttribute="leading" secondItem="MYd-s3-bcU" secondAttribute="leading" id="Tgd-D9-tLY"/>
+                            <constraint firstItem="Yoj-gC-8iS" firstAttribute="leading" secondItem="MYd-s3-bcU" secondAttribute="leading" id="iet-dQ-h0J"/>
+                            <constraint firstItem="XR4-f5-SgV" firstAttribute="leading" secondItem="MYd-s3-bcU" secondAttribute="leading" id="mGi-Lu-1vG"/>
+                            <constraint firstItem="Yoj-gC-8iS" firstAttribute="top" secondItem="Kcc-9M-3og" secondAttribute="bottom" id="mVw-jN-mS8"/>
+                            <constraint firstAttribute="bottom" secondItem="Yoj-gC-8iS" secondAttribute="bottom" id="mjT-tF-wTS"/>
+                            <constraint firstItem="Kcc-9M-3og" firstAttribute="width" secondItem="Yoj-gC-8iS" secondAttribute="width" id="pnY-mt-KGY"/>
+                            <constraint firstAttribute="trailing" secondItem="XR4-f5-SgV" secondAttribute="trailing" id="pw2-ha-bLM"/>
+                            <constraint firstAttribute="trailing" secondItem="Kcc-9M-3og" secondAttribute="trailing" id="rna-L3-S3U"/>
+                            <constraint firstItem="Kcc-9M-3og" firstAttribute="leading" secondItem="MYd-s3-bcU" secondAttribute="leading" id="v7w-3u-Uxs"/>
+                            <constraint firstItem="Yoj-gC-8iS" firstAttribute="top" secondItem="Kcc-9M-3og" secondAttribute="bottom" id="xK0-e1-xxS"/>
+                            <constraint firstItem="Yoj-gC-8iS" firstAttribute="centerX" secondItem="MYd-s3-bcU" secondAttribute="centerX" id="xVT-yH-v4a"/>
                         </constraints>
-                        <string key="text">Supports two lines
-Like this</string>
-                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="36"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert" returnKeyType="next"/>
-                    </textView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XR4-f5-SgV">
-                        <rect key="frame" x="0.0" y="100" width="343" height="30"/>
-                        <connections>
-                            <action selector="selectTimeAction:" destination="dgt-Ky-4Aa" eventType="touchUpInside" id="nbb-3k-z4f"/>
-                        </connections>
-                    </button>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5n5-Vz-Kp8">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="183.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </subviews>
                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstItem="Kcc-9M-3og" firstAttribute="width" secondItem="Yoj-gC-8iS" secondAttribute="width" id="9h6-V8-CKl"/>
-                    <constraint firstItem="XR4-f5-SgV" firstAttribute="leading" secondItem="jXf-GT-L7G" secondAttribute="leading" id="BEJ-x6-yNU"/>
-                    <constraint firstItem="XR4-f5-SgV" firstAttribute="top" secondItem="Kcc-9M-3og" secondAttribute="bottom" id="I0r-O5-kHD"/>
                     <constraint firstItem="5n5-Vz-Kp8" firstAttribute="top" secondItem="jXf-GT-L7G" secondAttribute="top" id="IpG-J2-eW3"/>
-                    <constraint firstItem="Yoj-gC-8iS" firstAttribute="leading" secondItem="jXf-GT-L7G" secondAttribute="leading" id="JCk-oY-86a"/>
-                    <constraint firstAttribute="trailing" secondItem="Kcc-9M-3og" secondAttribute="trailing" id="KNt-KB-2Uc"/>
-                    <constraint firstItem="Yoj-gC-8iS" firstAttribute="centerX" secondItem="jXf-GT-L7G" secondAttribute="centerX" id="LNH-h4-gkB"/>
-                    <constraint firstItem="Kcc-9M-3og" firstAttribute="centerX" secondItem="jXf-GT-L7G" secondAttribute="centerX" id="OKH-1p-RNf"/>
-                    <constraint firstAttribute="bottom" secondItem="XR4-f5-SgV" secondAttribute="bottom" id="OUP-zH-LEJ"/>
-                    <constraint firstAttribute="trailing" secondItem="Yoj-gC-8iS" secondAttribute="trailing" id="fSe-U6-fcV"/>
+                    <constraint firstItem="MYd-s3-bcU" firstAttribute="leading" secondItem="jXf-GT-L7G" secondAttribute="leading" id="Wim-Rz-kfK"/>
+                    <constraint firstAttribute="trailing" secondItem="MYd-s3-bcU" secondAttribute="trailing" id="exg-sF-lnp"/>
                     <constraint firstAttribute="trailing" secondItem="5n5-Vz-Kp8" secondAttribute="trailing" id="frc-wN-y5d"/>
-                    <constraint firstItem="Yoj-gC-8iS" firstAttribute="top" secondItem="Kcc-9M-3og" secondAttribute="bottom" id="fux-vl-qiu"/>
-                    <constraint firstItem="Kcc-9M-3og" firstAttribute="top" secondItem="jXf-GT-L7G" secondAttribute="top" id="gAt-Wb-DyY"/>
                     <constraint firstAttribute="bottom" secondItem="5n5-Vz-Kp8" secondAttribute="bottom" id="mN7-Re-XP8"/>
-                    <constraint firstAttribute="trailing" secondItem="XR4-f5-SgV" secondAttribute="trailing" id="nfJ-AH-tLH"/>
-                    <constraint firstItem="Kcc-9M-3og" firstAttribute="leading" secondItem="jXf-GT-L7G" secondAttribute="leading" id="o2D-jj-qUo"/>
-                    <constraint firstAttribute="bottom" secondItem="Yoj-gC-8iS" secondAttribute="bottom" constant="20" id="q5e-Mf-m6u"/>
+                    <constraint firstItem="MYd-s3-bcU" firstAttribute="centerY" secondItem="jXf-GT-L7G" secondAttribute="centerY" id="ooE-5J-9od"/>
                     <constraint firstItem="5n5-Vz-Kp8" firstAttribute="leading" secondItem="jXf-GT-L7G" secondAttribute="leading" id="svZ-Ft-Z8A"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="interactionView" destination="5n5-Vz-Kp8" id="iF6-bU-X6f"/>
                 <outlet property="statusLabel" destination="Yoj-gC-8iS" id="fOa-WC-KVV"/>
+                <outlet property="titleHeight" destination="Pm8-QS-crh" id="gus-IW-0UC"/>
                 <outlet property="titleView" destination="Kcc-9M-3og" id="ziv-60-xH2"/>
             </connections>
             <point key="canvasLocation" x="463.5" y="49"/>
