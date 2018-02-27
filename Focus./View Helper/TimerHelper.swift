@@ -21,7 +21,7 @@ extension ViewController {
     @objc func timerAction() {
         seconds += 1
         
-        if seconds == 1 {
+        if seconds == 60 {
             seconds = 0
             if current.status == .DONE {
                 current.spent = 0
@@ -31,10 +31,9 @@ extension ViewController {
             print(current.spent)
             if current.isDone {
                 toggleFlash()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-                    self.toggleFlash()
-                })
                 current.status = .DONE
+                sleep(2)
+                toggleFlash()
                 if current.id < tasks.count - 1 {
                     current = tasks[current.id + 1]
                 } else {

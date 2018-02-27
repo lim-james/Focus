@@ -15,14 +15,6 @@ extension ViewController: TaskDelegate {
         }
     }
     
-    func createNewTask() {
-        let indexPath = IndexPath(item: tasks.count, section: 0)
-        centreTableView.scrollToRow(at: indexPath, at: .top, animated: true)
-        if let cell = centreTableView.cellForRow(at: indexPath) as? MainCell {
-            cell.titleView.becomeFirstResponder()
-        }
-    }
-    
     func updateId() {
         for i in 0..<tasks.count {
             tasks[i].id = i
@@ -30,6 +22,14 @@ extension ViewController: TaskDelegate {
     }
     
     // delegate methods
+    
+    func createNewTask() {
+        let indexPath = IndexPath(item: tasks.count, section: 0)
+        centreTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        if let cell = centreTableView.cellForRow(at: indexPath) as? MainCell {
+            cell.titleView.becomeFirstResponder()
+        }
+    }
     
     func addTask(_ task: Task) {
         tasks.append(task)

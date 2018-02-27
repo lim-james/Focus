@@ -39,7 +39,7 @@ class MainCell: UITableViewCell, UITextViewDelegate {
         titleView.text = ""
         titleView.textContainer.maximumNumberOfLines = 2
         titleView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        titleView.tintColor = UIColor(red: 0, green: 253/255, blue: 254/255, alpha: 1)
+        titleView.tintColor = .primary
         statusLabel.text = ""
     }
     
@@ -49,9 +49,8 @@ class MainCell: UITableViewCell, UITextViewDelegate {
         buttonDelegate.focusButtons()
     }
     
-    func checkTask(_ content: String) {
+    func updateTitle(from prev: String, to content: String) {
         if !content.isEmpty {
-            let prev = task.title
             task.title = content
             if prev.isEmpty { taskDelegate.addTask(task) }
             else { updateDelegate.reloadTableViews() }
@@ -67,7 +66,11 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
-            checkTask(textView.text)
+            let prev = task.title
+            updateTitle(from: prev, to: textView.text)
+            if prev.isEmpty {
+                taskDelegate.createNewTask()
+            }
             textView.resignFirstResponder()
             return false
         }
@@ -78,6 +81,7 @@ class MainCell: UITableViewCell, UITextViewDelegate {
         if textView.textColor == .lightText {
             textView.textColor = .white
             textView.text = ""
+//            statusLabel.text = 
         }
         
         DispatchQueue.main.async {
@@ -92,7 +96,7 @@ class MainCell: UITableViewCell, UITextViewDelegate {
                 textView.text = "New task"
             }
         } else {
-            checkTask(textView.text)
+            updateTitle(from: task.title, to: textView.text)
         }
     }
 

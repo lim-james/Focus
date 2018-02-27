@@ -13,7 +13,7 @@ extension ViewController: ButtonDelegate {
         // create gradient background
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = mainButton.bounds
-        gradientLayer.colors = [buttonGradient[0].cgColor, buttonGradient[1].cgColor]
+        gradientLayer.colors = buttonGradient
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 1)
         mainButton.layer.insertSublayer(gradientLayer, at: 0)

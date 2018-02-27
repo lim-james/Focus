@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6EDEEDE320405C0000EDBAB1 /* UpdateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDEEDE220405C0000EDBAB1 /* UpdateHelpers.swift */; };
 		742A06242043B1C9000CE767 /* TimerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742A06232043B1C9000CE767 /* TimerHelper.swift */; };
+		743C39D72044FD1C0031C7B1 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743C39D62044FD1C0031C7B1 /* ColorExtension.swift */; };
 		7491CAB4203E5A4800E61C5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7491CAB3203E5A4800E61C5A /* AppDelegate.swift */; };
 		7491CAB9203E5A4800E61C5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7491CAB7203E5A4800E61C5A /* Main.storyboard */; };
 		7491CABB203E5A4800E61C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7491CABA203E5A4800E61C5A /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		6EDEEDE220405C0000EDBAB1 /* UpdateHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateHelpers.swift; sourceTree = "<group>"; };
 		742A06232043B1C9000CE767 /* TimerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHelper.swift; sourceTree = "<group>"; };
+		743C39D62044FD1C0031C7B1 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		7491CAB0203E5A4700E61C5A /* Focus..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Focus..app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7491CAB3203E5A4800E61C5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7491CAB8203E5A4800E61C5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				74FD11F7203ECCEE006800A1 /* LayoutExtension.swift */,
 				74A29C02203FAFBA00834062 /* TextViewExtension.swift */,
+				743C39D62044FD1C0031C7B1 /* ColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				7491CAB4203E5A4800E61C5A /* AppDelegate.swift in Sources */,
 				74A29C08203FBB5000834062 /* TimeHelpers.swift in Sources */,
 				74FD11F8203ECCEE006800A1 /* LayoutExtension.swift in Sources */,
+				743C39D72044FD1C0031C7B1 /* ColorExtension.swift in Sources */,
 				74A29BFB203FA7AD00834062 /* ButtonHelpers.swift in Sources */,
 				74A29BF7203FA70200834062 /* ScrollHelpers.swift in Sources */,
 				742A06242043B1C9000CE767 /* TimerHelper.swift in Sources */,

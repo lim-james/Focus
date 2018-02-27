@@ -18,6 +18,7 @@ protocol UpdateDelegate {
 }
 
 protocol TaskDelegate {
+    func createNewTask()
     func addTask(_ task: Task)
 }
 
@@ -48,7 +49,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var pickerContainer: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
     
-    var buttonGradient = [UIColor(red: 0, green: 253/255, blue: 254/255, alpha: 1), UIColor(red: 0, green: 250/255, blue: 146/255, alpha: 1)]
+    var buttonGradient: [CGColor] = [UIColor.primary.cgColor, UIColor.secondary.cgColor]
     
     var previousMessage = "New"
     @IBOutlet weak var mainButton: UIButton!
@@ -96,8 +97,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         editTableView.isHidden = true
         editTableView.isEditing = true
         
-        topLine.backgroundColor = buttonGradient[0]
-        bottomLine.backgroundColor = buttonGradient[0]
+        topLine.backgroundColor = .primary
+        bottomLine.backgroundColor = .primary
         
         newTask = Task(id: 0, title: "", hours: 1, minutes: 30, status: .UNDONE)
         
@@ -158,9 +159,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             containerBottom.constant = 0
             UIView.animate(withDuration: 0.25, animations: {
                 self.editTableView.alpha = 0
-                self.topLine.backgroundColor = self.buttonGradient[0]
+                self.topLine.backgroundColor = .primary
                 self.topLine.transform = CGAffineTransform(rotationAngle: 0)
-                self.bottomLine.backgroundColor = self.buttonGradient[0]
+                self.bottomLine.backgroundColor = .primary
                 self.bottomLine.transform = CGAffineTransform(rotationAngle: 0)
                 self.view.layoutIfNeeded()
             }) { (Bool) in
