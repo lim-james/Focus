@@ -81,7 +81,9 @@ class MainCell: UITableViewCell, UITextViewDelegate {
         if textView.textColor == .lightText {
             textView.textColor = .white
             textView.text = ""
-//            statusLabel.text = 
+            UIView.animate(withDuration: 0.25, animations: {
+                self.statusLabel.textColor = .primary
+            })
         }
         
         DispatchQueue.main.async {
@@ -90,6 +92,9 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.statusLabel.textColor = .white
+        })
         if textView.text.isEmpty {
             if task.title.isEmpty {
                 textView.textColor = .lightText
