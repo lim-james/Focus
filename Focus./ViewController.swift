@@ -181,12 +181,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if current == nil {
                 current = tasks.first
             }
+            if current.title.isEmpty {
+                return
+            }
             startTimer()
         } else {
             UIScreen.main.brightness = brightness
             stopTimer()
             reloadTableViews()
-            if current != nil {
+            if current != nil && !current.title.isEmpty {
                 centreTableView.scrollToRow(at: IndexPath(row: current.id, section: 0), at: .top, animated: true)
             }
         }

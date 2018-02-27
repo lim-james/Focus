@@ -35,6 +35,5 @@ extension ViewController: TaskDelegate {
         tasks.append(task)
         newTask = Task(id: tasks.count, title: "", hours: 1, minutes: 30, status: .UNDONE)
         reloadTableViews()
-//        createNewTask()
     }
 }
