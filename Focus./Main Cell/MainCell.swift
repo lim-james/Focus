@@ -68,8 +68,7 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             checkTask(textView.text)
-            
-//            textView.resignFirstResponder()
+            textView.resignFirstResponder()
             return false
         }
         return true

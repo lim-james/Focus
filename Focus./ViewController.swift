@@ -184,6 +184,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if current.title.isEmpty {
                 return
             }
+            for i in tasks {
+                print(i.id)
+            }
             startTimer()
         } else {
             UIScreen.main.brightness = brightness
