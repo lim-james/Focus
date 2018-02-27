@@ -23,6 +23,12 @@ extension ViewController: TaskDelegate {
         }
     }
     
+    func updateId() {
+        for i in 0..<tasks.count {
+            tasks[i].id = i
+        }
+    }
+    
     // delegate methods
     
     func addTask(_ task: Task) {

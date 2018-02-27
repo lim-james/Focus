@@ -21,7 +21,7 @@ extension ViewController {
     @objc func timerAction() {
         seconds += 1
         
-        if seconds == 60 {
+        if seconds == 1 {
             seconds = 0
             if current.status == .DONE {
                 current.spent = 0
