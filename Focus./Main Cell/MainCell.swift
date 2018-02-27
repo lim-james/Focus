@@ -24,9 +24,11 @@ class MainCell: UITableViewCell, UITextViewDelegate {
             if task.title.isEmpty {
                 titleView.textColor = .lightText
                 titleView.text = "New task"
+                titleView.returnKeyType = .next
             } else {
                 titleView.textColor = .white
                 titleView.text = task.title
+                titleView.returnKeyType = .done
             }
             statusLabel.text = task.getStatus()
         }
@@ -49,10 +51,10 @@ class MainCell: UITableViewCell, UITextViewDelegate {
         buttonDelegate.focusButtons()
     }
     
-    func updateTitle(from prev: String, to content: String) {
+    func updateTitle(to content: String) {
         if !content.isEmpty {
             task.title = content
-            if prev.isEmpty { taskDelegate.addTask(task) }
+            if titleView.returnKeyType == .next { taskDelegate.addTask(task) }
             else { updateDelegate.reloadTableViews() }
         }
     }
@@ -66,12 +68,10 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
-            let prev = task.title
-            updateTitle(from: prev, to: textView.text)
-            if prev.isEmpty {
+            textView.resignFirstResponder()
+            if titleView.returnKeyType == .next {
                 taskDelegate.createNewTask()
             }
-            textView.resignFirstResponder()
             return false
         }
         return true
@@ -96,7 +96,7 @@ class MainCell: UITableViewCell, UITextViewDelegate {
                 textView.text = "New task"
             }
         } else {
-            updateTitle(from: task.title, to: textView.text)
+            updateTitle(to: textView.text)
         }
     }
 
