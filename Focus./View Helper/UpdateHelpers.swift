@@ -10,6 +10,7 @@ import UIKit
 
 extension ViewController: UpdateDelegate {
     func reloadTableViews() {
+        updateId()
         topTableView.reloadData()
         centreTableView.reloadData()
         bottomTableView.reloadData()

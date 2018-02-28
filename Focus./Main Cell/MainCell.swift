@@ -78,7 +78,6 @@ class MainCell: UITableViewCell, UITextViewDelegate {
                 taskDelegate.addTask(task)
             } else {
                 updateDelegate.reloadTableViews()
-                
             }
         }
     }
