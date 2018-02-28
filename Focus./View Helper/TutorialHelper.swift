@@ -27,6 +27,15 @@ extension ViewController: TutorialDelegate {
         }
     }
     
+    func setupOverlays() {
+        let layers = [newOverlay, titleOverlay, editOverlay, topCoverOverlay, bottomLine]
+        for layer in layers {
+            let tap = UITapGestureRecognizer(target: self, action: #selector(self.fadeOutOverlays))
+            layer?.addGestureRecognizer(tap)
+        }
+    }
+    
+    
     func showOverlays() {
         newOverlay.isHidden = false
         titleOverlay.isHidden = false
@@ -71,7 +80,7 @@ extension ViewController: TutorialDelegate {
         }
     }
     
-    func fadeOutOverlays() {
+    @objc func fadeOutOverlays() {
         UIView.animate(withDuration: 0.25, animations: {
             self.newOverlay.alpha = 0
             self.titleOverlay.alpha = 0

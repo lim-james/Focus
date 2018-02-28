@@ -130,6 +130,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         helpImage.image = helpImage.image!.withRenderingMode(.alwaysTemplate)
         
+        setupOverlays()
         hideOverlays()
         fadeOutOverlays()
         
