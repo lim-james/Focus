@@ -35,7 +35,6 @@ extension ViewController: TutorialDelegate {
         }
     }
     
-    
     func showOverlays() {
         newOverlay.isHidden = false
         titleOverlay.isHidden = false

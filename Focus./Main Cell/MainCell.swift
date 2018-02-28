@@ -41,11 +41,13 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
+        
         titleView.delegate = self
         titleView.text = ""
         titleView.textContainer.maximumNumberOfLines = 2
         titleView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         titleView.isScrollEnabled = false
+        
         statusLabel.text = ""
     }
     
@@ -72,7 +74,6 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     func updateTitle(to content: String) {
         if !content.isEmpty {
             task.title = content
-            print(tutorialDelegate.getTutorialStatus() != .none)
             if titleView.returnKeyType == .next || tutorialDelegate.getTutorialStatus() != .none { taskDelegate.addTask(task) }
             else { updateDelegate.reloadTableViews() }
         }
