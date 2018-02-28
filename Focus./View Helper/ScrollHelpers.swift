@@ -45,7 +45,7 @@ extension ViewController {
             }
         }
         
-        extra = self.view.frame.height * 0.1
+        extra = self.view.frame.height * 0.05
         cell.contentView.subviews[0].transform = CGAffineTransform(scaleX: sqrt(scale), y: sqrt(scale))
         
         extra = 0

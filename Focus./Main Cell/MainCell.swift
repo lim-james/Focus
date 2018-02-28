@@ -45,7 +45,6 @@ class MainCell: UITableViewCell, UITextViewDelegate {
         titleView.textContainer.maximumNumberOfLines = 2
         titleView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         titleView.isScrollEnabled = false
-        titleView.tintColor = .primary
         statusLabel.text = ""
     }
     

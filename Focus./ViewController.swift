@@ -106,7 +106,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         bottomLine.backgroundColor = .primary
         
         helpImage.image = helpImage.image!.withRenderingMode(.alwaysTemplate)
-        helpImage.tintColor = .primary
         
         newTask = Task(id: 0, title: "", hours: 1, minutes: 30, status: .UNDONE)
         
