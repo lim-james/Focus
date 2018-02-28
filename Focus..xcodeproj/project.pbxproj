@@ -43,7 +43,7 @@
 		7491CAC9203E6B1500E61C5A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		7491CACB203E7F5F00E61C5A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7491CACD203E80CD00E61C5A /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
-		74A29BF6203FA70200834062 /* ScrollHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollHelpers.swift; sourceTree = "<group>"; };
+		74A29BF6203FA70200834062 /* ScrollHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollHelpers.swift; sourceTree = "<group>"; usesTabs = 0; };
 		74A29BF8203FA74200834062 /* TableViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHelpers.swift; sourceTree = "<group>"; };
 		74A29BFA203FA7AD00834062 /* ButtonHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHelpers.swift; sourceTree = "<group>"; };
 		74A29BFC203FA7CE00834062 /* TaskHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskHelpers.swift; sourceTree = "<group>"; };

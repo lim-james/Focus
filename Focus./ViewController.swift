@@ -128,7 +128,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         topLine.backgroundColor = .primary
         bottomLine.backgroundColor = .primary
         
-        helpImage.image = helpImage.image!.withRenderingMode(.alwaysTemplate)
+//        helpImage.image = helpImage.image!.withRenderingMode(.alwaysTemplate)
         
         setupOverlays()
         hideOverlays()
@@ -170,10 +170,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             createNewTask()
         } else if mainButton.titleLabel?.text == "Done" {
+            closeTimePicker()
             if tutorial == .time {
                 setTutorialStatus(to: .start)
             }
-            closeTimePicker()
         }
     }
     

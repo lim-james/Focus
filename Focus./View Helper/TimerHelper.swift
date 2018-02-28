@@ -20,15 +20,14 @@ extension ViewController {
     
     @objc func timerAction() {
         seconds += 1
-        print(seconds)
-        if seconds == 1 {
+        print("minutes: \(current.spent) seconds: \(seconds)")
+        if seconds == 60 {
             seconds = 0
             if current.status == .DONE {
                 current.spent = 0
             }
             current.status = .DOING
             current.spent += 1
-            print(current.spent)
             if current.isDone {
                 blink()
                 current.status = .DONE

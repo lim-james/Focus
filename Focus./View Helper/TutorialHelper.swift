@@ -28,7 +28,7 @@ extension ViewController: TutorialDelegate {
     }
     
     func setupOverlays() {
-        let layers = [newOverlay, titleOverlay, editOverlay, topCoverOverlay, bottomLine]
+        let layers = [newOverlay, titleOverlay, editOverlay, topCoverOverlay, bottomCoverOverlay]
         for layer in layers {
             let tap = UITapGestureRecognizer(target: self, action: #selector(self.closeTutorial))
             layer?.addGestureRecognizer(tap)
@@ -84,6 +84,22 @@ extension ViewController: TutorialDelegate {
     }
     
     func fadeOutOverlays() {
+        UIView.animate(withDuration: 0.25) {
+            self.newOverlay.alpha = 0
+            self.titleOverlay.alpha = 0
+            self.editOverlay.alpha = 0
+            
+            self.topCoverOverlay.alpha = 0
+            self.bottomCoverOverlay.alpha = 0
+            
+            self.newHelpOverlay.alpha = 0
+            self.titleHelpOverlay.alpha = 0
+            self.timeHelpOverlay.alpha = 0
+            self.startHelpOverlay.alpha = 0
+        }
+    }
+    
+    func fadeOutAndHideOverlays() {
         UIView.animate(withDuration: 0.25, animations: {
             self.newOverlay.alpha = 0
             self.titleOverlay.alpha = 0
@@ -101,51 +117,35 @@ extension ViewController: TutorialDelegate {
         }
     }
     
-    func newTutorial() {
+    func hide(_ views: [UIView]) {
+        for view in views { view.isHidden = true }
+    }
+    
+    func fadeOut(_ views: [UIView]) {
+        for view in views { view.alpha = 0 }
+    }
+    
+    func tutorial(hiding views: [UIView]) {
         showOverlays()
-        
-        titleHelpOverlay.isHidden = true
-        timeHelpOverlay.isHidden = true
-        startHelpOverlay.isHidden = true
-        
-        newOverlay.isHidden = true
-        
+        hide(views)
         fadeInOverlays()
+        fadeOut(views)
+    }
+    
+    func newTutorial() {
+        tutorial(hiding: [titleHelpOverlay, timeHelpOverlay, startHelpOverlay, newOverlay] as! [UIView])
     }
     
     func titleTutorial() {
-        showOverlays()
-        
-        newHelpOverlay.isHidden = true
-        timeHelpOverlay.isHidden = true
-        startHelpOverlay.isHidden = true
-        
-        titleOverlay.isHidden = true
-        
-        fadeInOverlays()
+        tutorial(hiding: [newHelpOverlay, timeHelpOverlay, startHelpOverlay, titleOverlay] as! [UIView])
     }
     
     func timeTutorial() {
-        showOverlays()
-        
-        newHelpOverlay.isHidden = true
-        titleHelpOverlay.isHidden = true
-        startHelpOverlay.isHidden = true
-        
-        titleOverlay.isHidden = true
-        bottomCoverOverlay.isHidden = true
-        newOverlay.isHidden = true
-        
-        fadeInOverlays()
+        tutorial(hiding: [newHelpOverlay, titleHelpOverlay, startHelpOverlay, titleOverlay, bottomCoverOverlay, newOverlay] as! [UIView])
     }
     
     func startTutorial() {
-        showOverlays()
-        newHelpOverlay.isHidden = true
-        titleHelpOverlay.isHidden = true
-        timeHelpOverlay.isHidden = true
-        
-        fadeInOverlays()
+        tutorial(hiding: [newHelpOverlay, titleHelpOverlay, timeHelpOverlay] as! [UIView])
     }
     
     // Delegate methods
@@ -162,7 +162,7 @@ extension ViewController: TutorialDelegate {
         case .time: timeTutorial()
         case .start: startTutorial()
         default:
-            fadeOutOverlays()
+            fadeOutAndHideOverlays()
             editButton.isEnabled = true
         }
     }

@@ -71,6 +71,7 @@ extension ViewController {
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         syncScrolls(scrollView)
+        view.endEditing(true)
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -106,7 +107,6 @@ extension ViewController {
     }
     
     func syncScrolls(_ scrollView: UIScrollView) {
-        view.endEditing(true)
         switch scrollView {
         case topTableView:
             centreTableView.contentOffset.y = topTableView.contentOffset.y

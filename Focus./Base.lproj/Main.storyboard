@@ -14,6 +14,7 @@
         <array key="AvenirNext.ttc">
             <string>AvenirNext-Bold</string>
             <string>AvenirNext-DemiBold</string>
+            <string>AvenirNext-Medium</string>
         </array>
     </customFonts>
     <scenes>
@@ -216,11 +217,17 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWa-Mz-XXj">
                                                 <rect key="frame" x="250" y="0.0" width="125" height="56"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="help" translatesAutoresizingMaskIntoConstraints="NO" id="c0Z-KV-AR6">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c0Z-KV-AR6">
                                                         <rect key="frame" x="51" y="16" width="24" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="2M5-hg-IK7"/>
+                                                            <constraint firstAttribute="width" constant="24" id="kf9-Ik-8Pi"/>
+                                                        </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y44-9F-cHf">
                                                         <rect key="frame" x="0.0" y="0.0" width="125" height="56"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                                        <state key="normal" title="HELP"/>
                                                         <connections>
                                                             <action selector="helpAction:" destination="7bX-mN-LSW" eventType="touchUpInside" id="sLb-Q6-EHB"/>
                                                         </connections>
@@ -418,7 +425,4 @@ place device face down</string>
             <point key="canvasLocation" x="904.79999999999995" y="133.5832083958021"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="help" width="24" height="24"/>
-    </resources>
 </document>
