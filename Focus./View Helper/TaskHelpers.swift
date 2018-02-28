@@ -24,6 +24,7 @@ extension ViewController: TaskDelegate {
     // delegate methods
     
     func createNewTask() {
+        updateId()
         let indexPath = IndexPath(item: tasks.count, section: 0)
         centreTableView.scrollToRow(at: indexPath, at: .top, animated: true)
         if let cell = centreTableView.cellForRow(at: indexPath) as? MainCell {
@@ -32,6 +33,7 @@ extension ViewController: TaskDelegate {
     }
     
     func addTask(_ task: Task) {
+        updateId()
         tasks.append(task)
         newTask = Task(id: tasks.count, title: "", hours: 1, minutes: 30, status: .UNDONE)
         reloadTableViews()
