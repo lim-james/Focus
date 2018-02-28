@@ -17,7 +17,6 @@ extension ViewController: TimeDelegate {
         if previousMessage != mainButton.titleLabel?.text {
             previousMessage =   (mainButton.titleLabel?.text)!
         }
-        mainButton.setTitle("Done", for: .normal)
         
         current = task
         
@@ -26,10 +25,12 @@ extension ViewController: TimeDelegate {
         bottomTableView.isScrollEnabled = false
         
         bottomMultiplier = bottomMultiplier.setMultiplier(1)
-        UIView.animate(withDuration: 0.25) {
+        UIView.animate(withDuration: 0.25, animations: {
             self.view.layoutIfNeeded()
             self.bottomTableView.alpha = 0
             self.pickerContainer.alpha = 1
+        }) { (Bool) in
+            self.mainButton.setTitle("Done", for: .normal)
         }
     }
     

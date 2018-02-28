@@ -99,8 +99,6 @@ extension ViewController {
         if centreTableView.contentOffset.y/rowHeight == CGFloat(tasks.count) {
             let cell = centreTableView.cellForRow(at: indexPath) as! MainCell
             cell.titleView.becomeFirstResponder()
-        } else {
-            mainButton.setTitle("New", for: .normal)
         }
     }
     
