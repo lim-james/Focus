@@ -13,7 +13,6 @@ extension ViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.clipsToBounds = true
-        tableView.alpha = 0.2
         tableView.backgroundColor  = .black
         tableView.estimatedRowHeight = rowHeight
         tableView.rowHeight = rowHeight

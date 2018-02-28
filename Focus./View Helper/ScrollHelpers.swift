@@ -28,17 +28,26 @@ extension ViewController {
         let indexPath = tableView.indexPath(for: cell)
         let rectOfCell = tableView.rectForRow(at: indexPath!)
         let rectOfCellInSuperview = tableView.convert(rectOfCell, to: tableView.superview)
-        let extra = view.frame.height * 0.5
-        let center = (view.frame.height + extra - rowHeight)/2
-        let y = rectOfCellInSuperview.minY + extra/2
-        var scale = center/y
-        if scale > 1 {
-            scale = 1/(scale)
+        
+        var center: CGFloat = 0
+        var y: CGFloat = 0
+        var scale: CGFloat = 0
+        
+        var extra: CGFloat = 0 {
+            didSet {
+                center = (view.frame.height + extra - rowHeight)/2
+                y = rectOfCellInSuperview.minY + extra/2
+                scale = center/y
+                if scale > 1 { scale = 1/(scale) }
+                if scale < 0 { scale = 0 }
+            }
         }
-        if scale < 0 {
-            scale = 0
-        }
-        cell.contentView.transform = CGAffineTransform(scaleX: scale, y: scale)
+        
+        extra = view.frame.height * 0.25
+        cell.contentView.transform = CGAffineTransform(scaleX: sqrt(scale), y: sqrt(scale))
+        
+        extra = 0
+        cell.contentView.alpha = sq(scale)
     }
     
     func sq(_ x: CGFloat) -> CGFloat {

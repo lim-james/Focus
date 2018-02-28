@@ -33,7 +33,6 @@ extension ViewController: TimeDelegate {
         }
     }
     
-    // seems hacky gotta fix it soon.
     func updateTime() {
         current.hours = pickerView.selectedRow(inComponent: 0)
         current.minutes = pickerView.selectedRow(inComponent: 2)
@@ -53,7 +52,7 @@ extension ViewController: TimeDelegate {
         bottomMultiplier = bottomMultiplier.setMultiplier(CGFloat(emptyRows + 1))
         UIView.animate(withDuration: 0.25) {
             self.view.layoutIfNeeded()
-            self.bottomTableView.alpha = 0.2
+            self.bottomTableView.alpha = 1
             self.pickerContainer.alpha = 0
         }
     }
