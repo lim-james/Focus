@@ -20,8 +20,8 @@ extension ViewController {
     
     @objc func timerAction() {
         seconds += 1
-        
-        if seconds == 60 {
+        print(seconds)
+        if seconds == 1 {
             seconds = 0
             if current.status == .DONE {
                 current.spent = 0
@@ -30,15 +30,21 @@ extension ViewController {
             current.spent += 1
             print(current.spent)
             if current.isDone {
-                toggleFlash()
+                blink()
                 current.status = .DONE
-                sleep(2)
-                toggleFlash()
                 if current.id < tasks.count - 1 {
                     current = tasks[current.id + 1]
                 } else {
                     stopTimer()
                 }
+            }
+        }
+    }
+    
+    func blink() {
+        for _ in 1...20 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.toggleFlash()
             }
         }
     }
@@ -52,7 +58,7 @@ extension ViewController {
                     device.torchMode = AVCaptureDevice.TorchMode.off
                 } else {
                     do {
-                        try device.setTorchModeOn(level: 1.0)
+                        try device.setTorchModeOn(level: 1)
                     } catch {
                         print(error)
                     }

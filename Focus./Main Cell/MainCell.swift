@@ -74,8 +74,12 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     func updateTitle(to content: String) {
         if !content.isEmpty {
             task.title = content
-            if titleView.returnKeyType == .next || tutorialDelegate.getTutorialStatus() != .none { taskDelegate.addTask(task) }
-            else { updateDelegate.reloadTableViews() }
+            if titleView.returnKeyType == .next || tutorialDelegate.getTutorialStatus() != .none {
+                taskDelegate.addTask(task)
+            } else {
+                updateDelegate.reloadTableViews()
+                
+            }
         }
     }
     

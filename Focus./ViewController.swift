@@ -170,7 +170,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             createNewTask()
         } else if mainButton.titleLabel?.text == "Done" {
-            if tutorial == .time { setTutorialStatus(to: .start) }
+            if tutorial == .time {
+                setTutorialStatus(to: .start)
+            }
             closeTimePicker()
         }
     }
