@@ -113,7 +113,7 @@ extension ViewController {
             bottomTableView.contentOffset.y = topTableView.contentOffset.y
             editTableView.contentOffset.y = topTableView.contentOffset.y
         case centreTableView:
-            topTableView.contentOffset.y = centreTableView.contentOffset.y // == nil ? centreTableView.contentOffset.y : centreTableView.contentOffset.y + 20
+            topTableView.contentOffset.y = centreTableView.contentOffset.y
             bottomTableView.contentOffset.y = centreTableView.contentOffset.y
             editTableView.contentOffset.y = centreTableView.contentOffset.y
         case bottomTableView:

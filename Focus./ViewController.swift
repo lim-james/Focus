@@ -157,11 +157,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         reloadTableViews()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func mainAction(_ sender: Any) {
         focusButtons()
         if mainButton.titleLabel?.text == "New" {
