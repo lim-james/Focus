@@ -10,16 +10,18 @@ import UIKit
 
 extension ViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        for cell in topTableView.visibleCells {
-            check(tableView: topTableView, cell: cell)
-        }
-        
-        for cell in centreTableView.visibleCells {
-            check(tableView: centreTableView, cell: cell)
-        }
-        
-        for cell in bottomTableView.visibleCells {
-            check(tableView: bottomTableView, cell: cell)
+        DispatchQueue.main.async {
+            for cell in self.topTableView.visibleCells {
+                self.check(tableView: self.topTableView, cell: cell)
+            }
+            
+            for cell in self.centreTableView.visibleCells {
+                self.check(tableView: self.centreTableView, cell: cell)
+            }
+            
+            for cell in self.bottomTableView.visibleCells {
+                self.check(tableView: self.bottomTableView, cell: cell)
+            }
         }
         syncScrolls(scrollView)
     }
@@ -35,7 +37,7 @@ extension ViewController {
         
         var extra: CGFloat = 0 {
             didSet {
-                center = (view.frame.height + extra - rowHeight)/2
+                center = (self.view.frame.height + extra - self.rowHeight)/2
                 y = rectOfCellInSuperview.minY + extra/2
                 scale = center/y
                 if scale > 1 { scale = 1/(scale) }
@@ -43,11 +45,11 @@ extension ViewController {
             }
         }
         
-        extra = view.frame.height * 0.25
+        extra = self.view.frame.height * 0.1
         cell.contentView.subviews[0].transform = CGAffineTransform(scaleX: sqrt(scale), y: sqrt(scale))
         
         extra = 0
-        cell.contentView.alpha = sq(scale)
+        cell.contentView.alpha = self.sq(scale)
     }
     
     func sq(_ x: CGFloat) -> CGFloat {
