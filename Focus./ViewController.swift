@@ -33,7 +33,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var tasks: [Task] = []
     
     var emptyRows: Int = 0
-    var rowHeight: CGFloat = 184
+    var rowHeight: CGFloat = 144
     
     @IBOutlet weak var centreHeight: NSLayoutConstraint!
     @IBOutlet weak var topMultiplier: NSLayoutConstraint!
@@ -58,10 +58,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var containerBottom: NSLayoutConstraint!
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var topButtonsContainer: UIView!
+    
     @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var editButtonContainer: UIView!
     @IBOutlet weak var topLine: UIView!
     @IBOutlet weak var bottomLine: UIView!
+    
+    @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var helpImage: UIImageView!
     
     @IBOutlet weak var topCenter: NSLayoutConstraint!
     @IBOutlet weak var bottomCenter: NSLayoutConstraint!
@@ -101,6 +105,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         topLine.backgroundColor = .primary
         bottomLine.backgroundColor = .primary
         
+        helpImage.image = helpImage.image!.withRenderingMode(.alwaysTemplate)
+        helpImage.tintColor = .primary
+        
         newTask = Task(id: 0, title: "", hours: 1, minutes: 30, status: .UNDONE)
         
         brightness = UIScreen.main.brightness
@@ -116,7 +123,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         centreHeight.constant = rowHeight
         
-        emptyRows = Int((view.frame.height/rowHeight)/2) - 1
+        emptyRows = Int((view.frame.height/rowHeight)/2)
         topMultiplier = topMultiplier.setMultiplier(CGFloat(emptyRows + 1))
         bottomMultiplier = bottomMultiplier.setMultiplier(CGFloat(emptyRows + 1))
         editMultiplier = editMultiplier.setMultiplier(CGFloat(2 * emptyRows + 1))
@@ -171,6 +178,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.editTableView.isHidden = true
             }
         }
+    }
+    
+    @IBAction func helpAction(_ sender: Any) {
+        
     }
     
     @objc func brightnessChanged() {

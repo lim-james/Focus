@@ -26,14 +26,14 @@ extension ViewController: ButtonDelegate {
     func focusButtons() {
         UIView.animate(withDuration: 0.25) {
             self.mainButtonContainer.alpha = 1
-            self.editButtonContainer.alpha = 1
+            self.topButtonsContainer.alpha = 1
         }
     }
     
     func dimButtons() {
         UIView.animate(withDuration: 0.25) {
             self.mainButtonContainer.alpha = 0.2
-            self.editButtonContainer.alpha = 0.2
+            self.topButtonsContainer.alpha = 0.2
         }
     }
 }
