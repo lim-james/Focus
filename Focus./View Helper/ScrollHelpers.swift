@@ -24,6 +24,7 @@ extension ViewController {
             }
         }
         syncScrolls(scrollView)
+        if tutorial == .time { setTutorialStatus(to: .none) }
     }
     
     func check(tableView: UITableView, cell: UITableViewCell) {

@@ -28,6 +28,11 @@ protocol TimeDelegate {
     func closeTimePicker()
 }
 
+protocol TutorialDelegate {
+    func getTutorialStatus() -> Tutorial
+    func setTutorialStatus(to tutorial: Tutorial)
+}
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var tasks: [Task] = []
@@ -60,12 +65,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var topButtonsContainer: UIView!
     
+    @IBOutlet weak var editContainer: UIView!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var topLine: UIView!
     @IBOutlet weak var bottomLine: UIView!
     
+    @IBOutlet weak var helpContainer: UIView!
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var helpImage: UIImageView!
+    
+    var tutorial: Tutorial = .none
+    
+    let overlayAlpha: CGFloat = 0.9
+    
+    @IBOutlet weak var newOverlay: UIView!
+    @IBOutlet weak var titleOverlay: UIView!
+    @IBOutlet weak var editOverlay: UIView!
+    
+    @IBOutlet weak var topCoverOverlay: UIView!
+    @IBOutlet weak var bottomCoverOverlay: UIView!
+    
+    @IBOutlet weak var newHelpOverlay: UILabel!
+    @IBOutlet weak var titleHelpOverlay: UILabel!
+    @IBOutlet weak var timeHelpOverlay: UILabel!
+    @IBOutlet weak var startHelpOverlay: UILabel!
     
     @IBOutlet weak var topCenter: NSLayoutConstraint!
     @IBOutlet weak var bottomCenter: NSLayoutConstraint!
@@ -107,6 +130,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         helpImage.image = helpImage.image!.withRenderingMode(.alwaysTemplate)
         
+        hideOverlays()
+        fadeOutOverlays()
+        
         newTask = Task(id: 0, title: "", hours: 1, minutes: 30, status: .UNDONE)
         
         brightness = UIScreen.main.brightness
@@ -138,8 +164,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func mainAction(_ sender: Any) {
         focusButtons()
         if mainButton.titleLabel?.text == "New" {
+            if tutorial == .new {
+                setTutorialStatus(to: .title)
+            }
             createNewTask()
         } else if mainButton.titleLabel?.text == "Done" {
+            if tutorial == .time { setTutorialStatus(to: .start) }
             closeTimePicker()
         }
     }
@@ -147,6 +177,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func editAction(_ sender: Any) {
         focusButtons()
         if editTableView.isHidden {
+            helpButton.isEnabled = false
             view.endEditing(true)
             reloadTableViews()
             editTableView.isHidden = false
@@ -154,6 +185,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             topCenter.constant = 0
             bottomCenter.constant = 0
             UIView.animate(withDuration: 0.25) {
+                self.helpContainer.alpha = 0
+                self.mainButtonContainer.alpha = 0
                 self.editTableView.alpha = 1
                 self.topLine.backgroundColor = .red
                 self.topLine.transform = CGAffineTransform(rotationAngle: .pi/4)
@@ -167,6 +200,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             bottomCenter.constant = 4
             containerBottom.constant = 0
             UIView.animate(withDuration: 0.25, animations: {
+                self.helpContainer.alpha = 1
+                self.mainButtonContainer.alpha = 1
                 self.editTableView.alpha = 0
                 self.topLine.backgroundColor = .primary
                 self.topLine.transform = CGAffineTransform(rotationAngle: 0)
@@ -175,12 +210,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.view.layoutIfNeeded()
             }) { (Bool) in
                 self.editTableView.isHidden = true
+                self.helpButton.isEnabled = true
             }
         }
     }
     
     @IBAction func helpAction(_ sender: Any) {
-        
+        editButton.isEnabled = false
+        view.endEditing(true)
+        closeTimePicker()
+        updateTutorial()
     }
     
     @objc func brightnessChanged() {
@@ -192,12 +231,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             dimButtons()
             brightness = UIScreen.main.brightness
             UIScreen.main.brightness = 0
-            if current == nil {
-                current = tasks.first
-            }
-            if current.title.isEmpty {
-                return
-            }
+            if current == nil { current = tasks.first }
+            if current.title.isEmpty { return }
+            if tutorial == .start { setTutorialStatus(to: .none) }
             startTimer()
         } else {
             UIScreen.main.brightness = brightness

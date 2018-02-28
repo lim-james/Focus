@@ -48,6 +48,7 @@ extension ViewController {
         cell.timeDelegate = self
         cell.updateDelegate = self
         cell.buttonDelegate = self
+        cell.tutorialDelegate = self
         cell.backgroundColor = view.backgroundColor
         if tableView == centreTableView {
             cell.interactionView.isHidden = true

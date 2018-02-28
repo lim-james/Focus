@@ -20,6 +20,7 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     var timeDelegate: TimeDelegate!
     var updateDelegate: UpdateDelegate!
     var buttonDelegate: ButtonDelegate!
+    var tutorialDelegate: TutorialDelegate!
     
     var task: Task! {
         didSet {
@@ -52,6 +53,9 @@ class MainCell: UITableViewCell, UITextViewDelegate {
         titleView.resignFirstResponder()
         timeDelegate.openTimePicker(with: task)
         buttonDelegate.focusButtons()
+        if tutorialDelegate.getTutorialStatus() == .title {
+            tutorialDelegate.setTutorialStatus(to: .time)
+        }
     }
     
     func updateHeight() {
@@ -68,7 +72,8 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     func updateTitle(to content: String) {
         if !content.isEmpty {
             task.title = content
-            if titleView.returnKeyType == .next { taskDelegate.addTask(task) }
+            print(tutorialDelegate.getTutorialStatus() != .none)
+            if titleView.returnKeyType == .next || tutorialDelegate.getTutorialStatus() != .none { taskDelegate.addTask(task) }
             else { updateDelegate.reloadTableViews() }
         }
     }
@@ -83,11 +88,23 @@ class MainCell: UITableViewCell, UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
+            if tutorialDelegate.getTutorialStatus() == .title {
+                tutorialDelegate.setTutorialStatus(to: .time)
+                timeDelegate.openTimePicker(with: task)
+            }
+            
             textView.resignFirstResponder()
             if titleView.returnKeyType == .next {
                 taskDelegate.createNewTask()
             }
             return false
+        }
+        return true
+    }
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        if tutorialDelegate.getTutorialStatus() == .title {
+            titleView.returnKeyType = .done
         }
         return true
     }
