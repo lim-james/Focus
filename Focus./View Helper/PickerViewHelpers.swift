@@ -29,19 +29,19 @@ extension ViewController {
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         if component % 2 != 0 {
-            return 25
+            return 30
         }
         return 45
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let label = UILabel()
-        label.font = UIFont(name: "AvenirNext-Bold", size: label.font.pointSize * 2)
+        label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize * 2)
         label.textColor = .white
         label.text = "\(row)"
         label.textAlignment = .right
         if component % 2 != 0 {
-            label.font = UIFont(name: "AvenirNext", size: label.font.pointSize * 2)
+            label.font = UIFont(name: label.font.familyName, size: label.font.pointSize * 0.75)
             label.textAlignment = .left
             label.text = component == 1 ? "h" : "m"
         }
