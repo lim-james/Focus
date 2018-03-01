@@ -138,6 +138,34 @@
                                     <constraint firstItem="3e2-19-EQy" firstAttribute="leading" secondItem="Xc1-cq-dfl" secondAttribute="leading" constant="16" id="pMI-M2-hpa"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIU-XT-UeU">
+                                <rect key="frame" x="121.5" y="558" width="133" height="33"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scroll to top" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1d-ya-SzW">
+                                        <rect key="frame" x="16" y="4" width="101" height="25"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdj-Ug-H5e">
+                                        <rect key="frame" x="0.0" y="0.0" width="132.5" height="33"/>
+                                        <connections>
+                                            <action selector="scrollToTopAction:" destination="7bX-mN-LSW" eventType="touchUpInside" id="hwn-zq-wq6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="v1d-ya-SzW" secondAttribute="trailing" constant="16" id="2G7-A4-S57"/>
+                                    <constraint firstAttribute="bottom" secondItem="v1d-ya-SzW" secondAttribute="bottom" constant="4" id="Ffa-LU-xJT"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qdj-Ug-H5e" secondAttribute="bottom" id="HRS-mT-Kg4"/>
+                                    <constraint firstItem="Qdj-Ug-H5e" firstAttribute="top" secondItem="zIU-XT-UeU" secondAttribute="top" id="N2i-oi-v5C"/>
+                                    <constraint firstItem="v1d-ya-SzW" firstAttribute="leading" secondItem="zIU-XT-UeU" secondAttribute="leading" constant="16" id="eAe-gA-Bhc"/>
+                                    <constraint firstItem="v1d-ya-SzW" firstAttribute="top" secondItem="zIU-XT-UeU" secondAttribute="top" constant="4" id="tj3-mP-dCZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qdj-Ug-H5e" secondAttribute="trailing" id="txy-ZT-SnP"/>
+                                    <constraint firstItem="Qdj-Ug-H5e" firstAttribute="leading" secondItem="zIU-XT-UeU" secondAttribute="leading" id="uJ5-h3-NuY"/>
+                                </constraints>
+                            </view>
                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpo-fR-2pU">
                                 <rect key="frame" x="0.0" y="591" width="375" height="76"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -371,6 +399,7 @@ place device face down</string>
                             <constraint firstItem="KtI-Yc-hlI" firstAttribute="height" secondItem="Lge-cm-Fmi" secondAttribute="height" id="kCK-Gk-Lxl"/>
                             <constraint firstItem="D0v-1f-w1v" firstAttribute="top" secondItem="bxM-0X-UWb" secondAttribute="bottom" id="lvg-H0-Jkc"/>
                             <constraint firstItem="Lge-cm-Fmi" firstAttribute="top" secondItem="bxM-0X-UWb" secondAttribute="bottom" id="m33-xS-pd7"/>
+                            <constraint firstItem="Xc1-cq-dfl" firstAttribute="top" secondItem="zIU-XT-UeU" secondAttribute="bottom" id="p1n-DR-2Mm"/>
                             <constraint firstItem="CFV-i6-TZF" firstAttribute="centerY" secondItem="DfO-4y-ed1" secondAttribute="centerY" id="t2V-6S-ciA"/>
                             <constraint firstItem="wa0-GR-vmE" firstAttribute="leading" secondItem="hA6-DF-eIg" secondAttribute="leading" id="t2w-uG-OP9"/>
                             <constraint firstItem="vRT-oj-pCw" firstAttribute="trailing" secondItem="hA6-DF-eIg" secondAttribute="trailing" id="tib-2x-S7c"/>
@@ -378,6 +407,7 @@ place device face down</string>
                             <constraint firstItem="Xc1-cq-dfl" firstAttribute="bottom" secondItem="hA6-DF-eIg" secondAttribute="bottom" id="ud3-0z-eE2"/>
                             <constraint firstItem="elH-sL-Ue8" firstAttribute="top" secondItem="KtI-Yc-hlI" secondAttribute="bottom" id="vPm-nN-aWg"/>
                             <constraint firstItem="Xc1-cq-dfl" firstAttribute="top" secondItem="MXx-sK-b1g" secondAttribute="bottom" id="vaS-VN-bq0"/>
+                            <constraint firstItem="zIU-XT-UeU" firstAttribute="centerX" secondItem="DfO-4y-ed1" secondAttribute="centerX" id="vcG-On-m4k"/>
                             <constraint firstItem="Bhb-eO-Cth" firstAttribute="top" secondItem="DfO-4y-ed1" secondAttribute="top" id="vj3-nf-vvA"/>
                             <constraint firstItem="hA6-DF-eIg" firstAttribute="trailing" secondItem="CFV-i6-TZF" secondAttribute="trailing" constant="16" id="wY0-5e-sMS"/>
                             <constraint firstItem="hA6-DF-eIg" firstAttribute="trailing" secondItem="D0v-1f-w1v" secondAttribute="trailing" constant="16" id="zXB-ze-RXK"/>
@@ -408,6 +438,9 @@ place device face down</string>
                         <outlet property="newOverlay" destination="bpo-fR-2pU" id="F1H-tn-e0i"/>
                         <outlet property="pickerContainer" destination="MXx-sK-b1g" id="pAe-XD-Ifv"/>
                         <outlet property="pickerView" destination="yhG-MT-tQB" id="sTe-MG-b30"/>
+                        <outlet property="scrollToTopButton" destination="Qdj-Ug-H5e" id="P2H-SV-7XI"/>
+                        <outlet property="scrollToTopContainer" destination="zIU-XT-UeU" id="OuM-sM-AdA"/>
+                        <outlet property="scrollToTopLabel" destination="v1d-ya-SzW" id="xx6-sR-8dh"/>
                         <outlet property="startHelpOverlay" destination="TeC-wk-dQB" id="Wul-bq-urB"/>
                         <outlet property="timeHelpOverlay" destination="bSt-cz-rgy" id="0Ya-Kk-IcW"/>
                         <outlet property="titleHelpOverlay" destination="wa0-GR-vmE" id="u1S-0o-oLx"/>

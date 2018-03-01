@@ -57,6 +57,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var buttonGradient: [CGColor] = [UIColor.primary.cgColor, UIColor.secondary.cgColor]
     
+    @IBOutlet weak var scrollToTopButton: UIButton!
+    @IBOutlet weak var scrollToTopLabel: UILabel!
+    @IBOutlet weak var scrollToTopContainer: UIView!
+    
     var previousMessage = "New"
     @IBOutlet weak var mainButton: UIButton!
     @IBOutlet weak var mainButtonContainer: UIView!
@@ -109,6 +113,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.alpha = 0
+        
         setupTableView(topTableView)
         setupTableView(centreTableView)
         setupTableView(bottomTableView)
@@ -127,6 +133,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         topLine.backgroundColor = .primary
         bottomLine.backgroundColor = .primary
+        
+        setupScrollButton()
         
 //        helpImage.image = helpImage.image!.withRenderingMode(.alwaysTemplate)
         
@@ -155,6 +163,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         editMultiplier = editMultiplier.setMultiplier(CGFloat(2 * emptyRows + 1))
         
         reloadTableViews()
+        
+        centreTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        
+        UIView.animate(withDuration: 0.25) {
+            self.view.alpha = 1
+        }
     }
     
     @IBAction func mainAction(_ sender: Any) {

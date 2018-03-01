@@ -78,6 +78,9 @@ extension ViewController {
         let y = targetContentOffset.pointee.y + rowHeight/2
         let cellIndex  = floor(y/rowHeight)
         targetContentOffset.pointee.y = cellIndex * rowHeight
+        
+        if cellIndex > 2 { showScrollButton() }
+        else { hideScrollButton() }
 
         updateCurrent()
         syncScrolls(scrollView)
